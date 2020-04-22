@@ -38,20 +38,7 @@
                                 <h4 class="mb-0">Nomor Identitas Siswa</h4>
                             </div>
                             <div class="card-body">
-
                                 <div class="row">
-                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label for="no-pendaftaran">No. Pendaftaran</label>
-                                            <div class="input-group mb-3">
-                                                <input type="text" value="" class="form-control" id="no-pendaftaran" name="no-pendaftaran" placeholder="No. Pendaftaran" maxlength="20" data-inputmask='"mask": "AAA-9999-999-9999"' data-mask required>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
                                             <label for="nisn">No. Induk Siswa Nasional (NISN)</label>
@@ -148,11 +135,14 @@
                                         <div class="form-group">
                                             <label for="jenis-kelamin">Jenis Kelamin</label>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="jenis-kelamin" id="jenis-kelamin"  style="width: 100%;" data-placeholder="Pilih Jenis Kelamin..." required>
+                                                <select class="form-control select2" name="jenis-kelamin" id="jenis-kelamin"  style="width: calc(100% - 100px);" data-placeholder="Pilih Jenis Kelamin..." required>
                                                     <option value="">Pilih Jenis Kelamin...</option>
                                                     <option value="L">Laki - Laki</option>
                                                     <option value="P">Perempuan</option>
                                                 </select>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -161,7 +151,7 @@
                                         <div class="form-group">
                                             <label for="tempat-lahir">Tempat Lahir</label>
                                             <div class="input-group mb-3">
-                                                <input type="text" value="" class="form-control text-capitalize" id="tempat-lahir" name="tempat-lahir" maxlength="20" placeholder="Maksimal 20 karakter">
+                                                <input type="text" value="" class="form-control text-capitalize" id="tempat-lahir" name="tempat-lahir" maxlength="20" placeholder="Maksimal 20 karakter" required>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
                                                 </div>
@@ -173,7 +163,7 @@
                                         <div class="form-group">
                                             <label for="tanggal-lahir">Tanggal Lahir (HH/BB/TTTT)</label>
                                             <div class="input-group mb-3">
-                                                <input type="text" maxlength="10" value="" class="form-control date" id="tanggal-lahir" name="tanggal-lahir" autocomplete="off" placeholder="Contoh: 01-01-1990" required readonly>
+                                                <input type="text" maxlength="10" value="" class="form-control date" id="tanggal-lahir" name="tanggal-lahir" autocomplete="off" placeholder="Pilil tanggal lahir" required readonly>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
                                                 </div>
@@ -185,7 +175,7 @@
                                         <div class="form-group">
                                             <label for="agama-siswa">Agama</label>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="agama-siswa" id="agama-siswa"  style="width: 100%;" data-placeholder="Pilih Agama..." required>
+                                                <select class="form-control select2" name="agama-siswa" id="agama-siswa"  style="width:calc(100% - 70px);" data-placeholder="Pilih Agama..." required>
                                                     <option value="">Pilih Agama...</option>
                                                     <option value="islam" >Islam</option>
                                                     <option value="kristen" >Kristen</option>
@@ -195,6 +185,9 @@
                                                     <option value="konghuchu" >Konghuchu</option>
                                                     <option value="lainnya" >Lainnya</option>
                                                 </select>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -203,11 +196,14 @@
                                         <div class="form-group">
                                             <label for="kewarganegaraan">Kewarganegaraan</label>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="kewarganegaraan" id="kewarganegaraan"  style="width: 100%;" data-placeholder="Pilih Kewarganegaraan..." required>
+                                                <select class="form-control select2" name="kewarganegaraan" id="kewarganegaraan"  style="width: calc(100% - 100px);" data-placeholder="Pilih Kewarganegaraan..." required>
                                                     <option value="">Pilih Kewarganegaraan...</option>
                                                     <option value="Indonesia" >WNI</option>
                                                     <option value="Lainnya" >WNA</option>
                                                 </select>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -291,7 +287,12 @@
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
                                             <label for="bahasa-rumah">Bahasa yang digunakan di rumah</label>
-                                            <input type="text" value="" class="form-control text-capitalize" id="bahasa-rumah" name="bahasa-rumah" maxlength="10" placeholder="Maksimal 10 karakter" required>
+                                            <div class="input-group mb-3">
+                                                <input type="text" value="" class="form-control text-capitalize" id="bahasa-rumah" name="bahasa-rumah" maxlength="10" placeholder="Maksimal 10 karakter" required>
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text"><i class="fa fa-asterisk" style="margin:0px;padding-left:0px"></i></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -311,7 +312,7 @@
                                                     <option value="SMA" >SMA</option>
                                                     <option value="MA" >MA</option>
                                                 </select>
-                                                <select class="form-control flat select2" name="asal-sekolah" id="asal-sekolah" data-placeholder="Pilih Sekolah..." style="width:60%" required>
+                                                <select class="form-control flat select2" name="asal-sekolah" id="asal-sekolah" data-placeholder="Pilih Sekolah..." style="width:calc(100% - 200px)" required>
                                                     <option value="PAUD" >SMPN 1 Jalancagak</option>
                                                     <option value="TK" >Lainnnya...</option>
                                                 </select>
@@ -325,7 +326,12 @@
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
                                             <label for="tahun-lulus">Tahun Lulus</label>
-                                            <input type="number" value="" min="1950" max="<?=date('Y')?>>" max-length="4" class="form-control" placeholder="Tahun lulus pendidikan terakhir" id="tahun-lulus" name="tahun-lulus" required>
+                                            <div class="input-group">
+                                                <input type="number" value="" min="1950" max="<?=date('Y')?>>" max-length="4" class="form-control" placeholder="Tahun lulus pendidikan terakhir" id="tahun-lulus" name="tahun-lulus" required>
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text"><i class="fa fa-asterisk" style="margin:0px;padding-left:0px"></i></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -351,7 +357,7 @@
                                         <div class="form-group">
                                             <label for="alamat-provinsi">Provinsi</label>
                                             <div class="input-group mb-3">
-                                                    <select class="form-control select2" name="alamat-provinsi" id="alamat-provinsi"  style="width: 90%;" data-placeholder="Pilih Provinsi..." required>
+                                                    <select class="form-control select2" name="alamat-provinsi" id="alamat-provinsi"  style="width: calc(100% - 100px);" data-placeholder="Pilih Provinsi..." required>
                                                     <option value="">Pilih Kewarganegaraan...</option>
                                                     <option value="Indonesia" >WNI</option>
                                                     <option value="Lainnya" >WNA</option>
@@ -367,7 +373,7 @@
                                         <div class="form-group">
                                             <label for="alamat-kota">Kabupaten/kota</label>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="alamat-kota" id="alamat-kota"  style="width: 90%;" data-placeholder="Pilih provinsi terlebih dahulu..." required>
+                                                <select class="form-control select2" name="alamat-kota" id="alamat-kota"  style="width: calc(100% - 100px);" data-placeholder="Pilih provinsi terlebih dahulu..." required>
                                                     <option value="">Pilih Kewarganegaraan...</option>
                                                     <option value="Indonesia" >WNI</option>
                                                     <option value="Lainnya" >WNA</option>
@@ -383,7 +389,7 @@
                                         <div class="form-group">
                                             <label for="alamat-kecamatan">Desa/kecamatan</label>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="alamat-kecamatan" id="alamat-kecamatan"  style="width: 90%;" data-placeholder="Pilih Kota/kabupaten terlebih dahulu..." required>
+                                                <select class="form-control select2" name="alamat-kecamatan" id="alamat-kecamatan"  style="width: calc(100% - 100px);" data-placeholder="Pilih Kota/kabupaten terlebih dahulu..." required>
                                                     <option value="">Pilih Kewarganegaraan...</option>
                                                     <option value="Indonesia" >WNI</option>
                                                     <option value="Lainnya" >WNA</option>
@@ -399,7 +405,7 @@
                                         <div class="form-group">
                                             <label for="alamat-desa">Kampung/desa</label>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="alamat-desa" id="alamat-desa"  style="width: 90%;" data-placeholder="Pilih Desa/kecamatan terlebih dahulu..." required>
+                                                <select class="form-control select2" name="alamat-desa" id="alamat-desa"  style="width: calc(100% - 100px);" data-placeholder="Pilih Desa/kecamatan terlebih dahulu..." required>
                                                     <option value="">Pilih Kewarganegaraan...</option>
                                                     <option value="Indonesia" >WNI</option>
                                                     <option value="Lainnya" >WNA</option>
@@ -443,7 +449,7 @@
 
                                     <div class="col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="tinggal-bersama">Surel/E-Mail</label>
+                                            <label for="tinggal-bersama">Tinggal Bersama</label>
                                             <div class="input-group mb-3">
                                                 <input type="text" value="" maxlength="20" class="form-control" id="tinggal-bersama" name="tinggal-bersama" placeholder="Contoh: orang tua/kost/dll" required>
                                                 <div class="input-group-append">
@@ -483,9 +489,9 @@
                                         <div class="form-group">
                                             <label for="jarak-sekolah">Jarak ke sekolah</label>
                                             <div class="input-group mb-3">
-                                                <input type="number" min="1" max="9999" maxlength="4" value="" class="form-control" id="jarak-sekolah" name="jarak-sekolah" placeholder="Jarak tempuh dari rumah/tempat tinggal ke sekolah" required>
+                                                <input type="number" min="1" max="9999" maxlength="4" value="" class="form-control" id="jarak-sekolah" name="jarak-sekolah" placeholder="Jarak tempuh dari rumah/tempat tinggal ke sekolah (satuan kilometer)">
                                                 <div class="input-group-append">
-                                                    <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
+                                                    <span class="input-group-text bg-light">Kilometer</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -515,9 +521,6 @@
                                             <label for="penyakit-berat">Penyakit berat yang pernah diderita</label>
                                             <div class="input-group mb-3">
                                                 <input type="text" value="" class="form-control" id="penyakit-berat" name="penyakit-berat" maxlength="45" placeholder="Penyakit berat yang pernah diderita...">
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -527,9 +530,6 @@
                                             <label for="penyakit-kambuhan">Penyakit kambuhan</label>
                                             <div class="input-group mb-3">
                                                 <input type="text" value="" class="form-control" id="penyakit-kambuhan" name="penyakit-kambuhan" maxlength="45" placeholder="Penyakit yang di derita yang dapat kambuh...">
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -538,7 +538,7 @@
                                         <div class="form-group">
                                             <label for="jurusan-pilih">Jurusan yang dipilih</label>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="jurusan-pilih" id="jurusan-pilih"  style="width: 90%;" data-placeholder="Pilih jurusan yang diminati.." required>
+                                                <select class="form-control select2" name="jurusan-pilih" id="jurusan-pilih"  style="width: calc(100% - 100px);" data-placeholder="Pilih jurusan yang diminati.." required>
                                                     <option value="">Pilih jurusan yang diminati..</option>
                                                     <option value="A+" >A+</option>
                                                 </select>
@@ -608,7 +608,7 @@
                                         <div class="form-group">
                                             <label for="pendidikan-ayah">Pendidikan terakhir</label>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="pendidikan-ayah" id="pendidikan-ayah"  style="width: 90%;" data-placeholder="Pilih pendidikan terakhir..">
+                                                <select class="form-control select2" name="pendidikan-ayah" id="pendidikan-ayah"  style="width: calc(100% - 100px);" data-placeholder="Pilih pendidikan terakhir..">
                                                     <option value="">Pilih Pendidikan Terakhir...</option>
                                                     <option value="PAUD" >PAUD</option>
                                                     <option value="TK" >TK</option>
@@ -694,7 +694,7 @@
                                         <div class="form-group">
                                             <label for="pendidikan-ibu">Pendidikan terakhir</label>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="pendidikan-ibu" id="pendidikan-ibu"  style="width: 90%;" data-placeholder="Pilih pendidikan terakhir..">
+                                                <select class="form-control select2" name="pendidikan-ibu" id="pendidikan-ibu"  style="width: calc(100% - 100px);" data-placeholder="Pilih pendidikan terakhir..">
                                                     <option value="">Pilih Pendidikan Terakhir...</option>
                                                     <option value="PAUD" >PAUD</option>
                                                     <option value="TK" >TK</option>

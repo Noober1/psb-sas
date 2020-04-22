@@ -1,0 +1,37 @@
+CRITICAL - 2020-04-21 02:49:11 --> Undefined variable: custom_body_style
+#0 D:\MyProject\web\html\ci4\app\Views\templates\base.php(10): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'D:\\MyProject\\we...', 10, Array)
+#1 D:\MyProject\web\html\ci4\system\View\View.php(236): include('D:\\MyProject\\we...')
+#2 D:\MyProject\web\html\ci4\system\Common.php(1071): CodeIgniter\View\View->render('templates/base', Array, true)
+#3 D:\MyProject\web\html\ci4\app\Controllers\Home.php(34): view('templates/base', Array)
+#4 D:\MyProject\web\html\ci4\system\CodeIgniter.php(910): App\Controllers\Home->register()
+#5 D:\MyProject\web\html\ci4\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 D:\MyProject\web\html\ci4\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\MyProject\web\html\ci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-04-21 02:56:49 --> syntax error, unexpected end of file
+#0 D:\MyProject\web\html\ci4\system\Common.php(1071): CodeIgniter\View\View->render('templates/navba...', Array, true)
+#1 D:\MyProject\web\html\ci4\app\Views\register.php(3): view('templates/navba...')
+#2 D:\MyProject\web\html\ci4\system\View\View.php(236): include('D:\\MyProject\\we...')
+#3 D:\MyProject\web\html\ci4\system\Common.php(1071): CodeIgniter\View\View->render('register', Array, true)
+#4 D:\MyProject\web\html\ci4\app\Views\templates\base.php(12): view('register')
+#5 D:\MyProject\web\html\ci4\system\View\View.php(236): include('D:\\MyProject\\we...')
+#6 D:\MyProject\web\html\ci4\system\Common.php(1071): CodeIgniter\View\View->render('templates/base', Array, true)
+#7 D:\MyProject\web\html\ci4\app\Controllers\Home.php(34): view('templates/base', Array)
+#8 D:\MyProject\web\html\ci4\system\CodeIgniter.php(910): App\Controllers\Home->register()
+#9 D:\MyProject\web\html\ci4\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\MyProject\web\html\ci4\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\MyProject\web\html\ci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2020-04-21 04:42:02 --> Undefined variable: query
+#0 D:\MyProject\web\html\ci4\app\Views\register.php(219): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'D:\\MyProject\\we...', 219, Array)
+#1 D:\MyProject\web\html\ci4\system\View\View.php(236): include('D:\\MyProject\\we...')
+#2 D:\MyProject\web\html\ci4\system\Common.php(1071): CodeIgniter\View\View->render('register', Array, true)
+#3 D:\MyProject\web\html\ci4\app\Views\templates\base.php(12): view('register')
+#4 D:\MyProject\web\html\ci4\system\View\View.php(236): include('D:\\MyProject\\we...')
+#5 D:\MyProject\web\html\ci4\system\Common.php(1071): CodeIgniter\View\View->render('templates/base', Array, true)
+#6 D:\MyProject\web\html\ci4\app\Controllers\Home.php(35): view('templates/base', Array)
+#7 D:\MyProject\web\html\ci4\system\CodeIgniter.php(910): App\Controllers\Home->register()
+#8 D:\MyProject\web\html\ci4\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 D:\MyProject\web\html\ci4\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\MyProject\web\html\ci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}

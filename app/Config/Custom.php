@@ -24,6 +24,7 @@ class Custom extends \CodeIgniter\Config\BaseConfig
             'load_toast'        => FALSE,
             'load_texteditor'   => FALSE,
             'load_osbar'        => TRUE,
+            'load_jscookie'     => FALSE
         );
         $opt = array_merge($opt,$res);
         $css = array(
@@ -37,6 +38,7 @@ class Custom extends \CodeIgniter\Config\BaseConfig
             'load_toast'        => '<link rel="stylesheet" href="'.getenv('RES_URL').'lte3/sweetalert2/dist/sweetalert2.min.css">',
             'load_texteditor'   => '<link rel="stylesheet" href="'.getenv('RES_URL').'lte3/summernote/summernote.min.js">',
             'load_osbar'        => '<link rel="stylesheet" href="'.getenv('RES_URL').'lte/overlayScrollbars/css/OverlayScrollbars.css">',
+            'load_jscookie'     => '',
         );
         $js = array(
             'load_lte'          => '<script src="'.getenv('RES_URL').'lte3/bootstrap/js/bootstrap.bundle.min.js"></script><script src="'.getenv('RES_URL').'lte3/lte/js/adminlte.min.js"></script>',
@@ -45,10 +47,11 @@ class Custom extends \CodeIgniter\Config\BaseConfig
             'load_icheck'       => '',
             'load_datepicker'   => '<script src="'.getenv('RES_URL').'lte/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>',
             'load_wow'          => '<script src="'.getenv('RES_URL').'lte/wowjs/dist/wow.min.js"></script>',
-            'load_select2'      => '<script src="'.getenv('RES_URL').'lte/wowjs/dist/wow.min.js"></script>',
-            'load_toast'        => '<script src="'.getenv('RES_URL').'lte3/select2/js/select2.full.min.js"></script>',
+            'load_select2'      => '<script src="'.getenv('RES_URL').'lte3/select2/js/select2.full.min.js"></script>',
+            'load_toast'        => '<script src="'.getenv('RES_URL').'lte3/sweetalert2/dist/sweetalert2.all.min.js"></script>',
             'load_texteditor'   => '',
             'load_osbar'        => '<script src="'.getenv('RES_URL').'lte/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>',
+            'load_jscookie'     => '<script src="'.getenv('RES_URL').'lte3/jquery/jquery.cookie.js"></script>',
         );
         if (count($opt)==count($css)&&count($opt)==count($js)) {
             $keys = array_keys($opt);

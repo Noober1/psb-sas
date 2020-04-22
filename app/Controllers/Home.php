@@ -7,7 +7,7 @@ class Home extends BaseController
 	{
 		$custom = new \Config\Custom();
 		$res = array(
-			'load_toast'	=> TRUE
+			'load_toast'	=> TRUE,
 		);
 		$data = [
 			'page_title'		=> $custom->pageTitle('Selamat datang'),
@@ -23,8 +23,9 @@ class Home extends BaseController
 	{
 		$custom = new \Config\Custom();
 		$res = array(
-			'load_toast'	=> TRUE,
-			'load_datepicker'=> TRUE,
+			'load_toast'		=> TRUE,
+			'load_datepicker'	=> TRUE,
+			'load_jscookie'		=> TRUE
 		);
 		$data = [
 			'page_title'		=> $custom->pageTitle('Selamat datang'),
@@ -35,4 +36,19 @@ class Home extends BaseController
 		return view('templates/base',$data);
 	}
 
+	public function registering()
+	{
+		$token = $this->request->getVar('token');
+		$captcha = model('App\Models\Captcha');
+		if ($this->request->isAJAX() && $token) {
+			if ($token) {
+				var_dump($captcha->validasi($token));
+			} else {
+				return 'no token received';
+			}
+			
+		} else {
+			return redirect()->to(base_url());
+		}
+	}
 }

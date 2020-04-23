@@ -1,4 +1,6 @@
-<script src="https://www.google.com/recaptcha/api.js?render=<?=getenv('CAPTCHA_KEYS')?>"></script>
+<?php if (getenv('CAPTCHA_ENABLE')==="Y") {?>
+    <script src="https://www.google.com/recaptcha/api.js?render=<?=getenv('CAPTCHA_KEYS')?>"></script>
+<?php }?>
 
 <div class="wrapper bg-light">
     <!-- navbar start -->
@@ -23,7 +25,7 @@
             <!-- Main content -->
         <div class="content">
             <div class="container">
-                <form id="form-register" class="row">
+                <form action="<?=base_url('Home/registering')?>" id="form-register" role="form" class="row">
                     
                     <div class="col-12">
                         <div class="callout callout-info" id="note">
@@ -78,7 +80,7 @@
 
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="no-skhun">No. Ijazah</label>
+                                            <label for="no-skhun">No. Surat Keterangan Hasil Ujian Nasional</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <input type="text" value="" class="form-control" id="no-skhun" name="no-skhun" maxlength="20" placeholder="Maksimal 20 karakter">
                                         </div>
@@ -126,7 +128,7 @@
 
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="nama-belakang">Nama Belakang</label>
+                                            <label for="nama-belakang">Nama Tengah dan Belakang</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <input type="text" value="" class="form-control text-capitalize" id="nama-belakang" name="nama-belakang" maxlength="30" placeholder="Maksimal 30 karakter">
                                         </div>
@@ -173,7 +175,7 @@
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
                                             <label for="tanggal-lahir">Tanggal Lahir (Tahun/Bulan/Tanggal)</label>
-                                            <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid, contoh valid: 1990/12/23 atau pilih dari daftar tanggal yang muncul</span></small>
+                                            <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
                                                 <input type="date" value="" class="form-control date" id="tanggal-lahir" name="tanggal-lahir" autocomplete="off" placeholder="Pilih tanggal lahir" required>
                                                 <div class="input-group-append">
@@ -333,9 +335,8 @@
                                                     <option value="SMA" >SMA</option>
                                                     <option value="MA" >MA</option>
                                                 </select>
-                                                <select class="form-control flat select2" name="asal-sekolah" id="asal-sekolah" data-placeholder="Pilih Sekolah..." style="width:calc(100% - 200px)" required>
-                                                    <option value="PAUD" >SMPN 1 Jalancagak</option>
-                                                    <option value="TK" >Lainnnya...</option>
+                                                <select class="form-control flat select2" name="asal-sekolah" id="asal-sekolah" data-ids="sekolah" data-placeholder="Pilih Sekolah..." style="width:calc(100% - 200px)" required>
+                                                    <option value="" selected>Pilih Sekolah...</option>
                                                 </select>
                                                 <div class="input-group-append">
                                                     <div class="input-group-text"><i class="fa fa-asterisk" style="margin:0px;padding-left:0px"></i></div>
@@ -349,7 +350,7 @@
                                             <label for="tahun-lulus">Tahun Lulus</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group">
-                                                <input type="number" value="" min="1950" max="<?=date('Y')?>>" max-length="4" class="form-control" placeholder="Tahun lulus pendidikan terakhir" id="tahun-lulus" name="tahun-lulus" required>
+                                                <input type="number" value="<?=date('Y')?>" min="1950" max="<?=date('Y')?>" max-length="4" class="form-control" placeholder="Tahun lulus pendidikan terakhir" id="tahun-lulus" name="tahun-lulus" required>
                                                 <div class="input-group-append">
                                                     <div class="input-group-text"><i class="fa fa-asterisk" style="margin:0px;padding-left:0px"></i></div>
                                                 </div>
@@ -381,10 +382,8 @@
                                             <label for="alamat-provinsi">Provinsi</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                    <select class="form-control select2" name="alamat-provinsi" id="alamat-provinsi"  style="width: calc(100% - 100px);" data-placeholder="Pilih Provinsi..." required>
-                                                    <option value="">Pilih Kewarganegaraan...</option>
-                                                    <option value="Indonesia" >WNI</option>
-                                                    <option value="Lainnya" >WNA</option>
+                                                    <select class="form-control select2" name="alamat-provinsi" id="alamat-provinsi" data-ids="province_id" style="width: calc(100% - 100px);" data-placeholder="Pilih Provinsi..." required>
+                                                    <option value="" selected>Pilih Provinsi...</option>
                                                 </select>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
@@ -398,10 +397,8 @@
                                             <label for="alamat-kota">Kabupaten/kota</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="alamat-kota" id="alamat-kota"  style="width: calc(100% - 100px);" data-placeholder="Pilih provinsi terlebih dahulu..." required>
-                                                    <option value="">Pilih Kewarganegaraan...</option>
-                                                    <option value="Indonesia" >WNI</option>
-                                                    <option value="Lainnya" >WNA</option>
+                                                <select class="form-control select2" name="alamat-kota" id="alamat-kota" data-ids="regency_id" style="width: calc(100% - 100px);" data-placeholder="Pilih provinsi terlebih dahulu..." required disabled>
+                                                    <option value="" selected>Pilih provinsi terlebih dahulu...</option>
                                                 </select>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
@@ -415,10 +412,8 @@
                                             <label for="alamat-kecamatan">Desa/kecamatan</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="alamat-kecamatan" id="alamat-kecamatan"  style="width: calc(100% - 100px);" data-placeholder="Pilih Kota/kabupaten terlebih dahulu..." required>
-                                                    <option value="">Pilih Kewarganegaraan...</option>
-                                                    <option value="Indonesia" >WNI</option>
-                                                    <option value="Lainnya" >WNA</option>
+                                                <select class="form-control select2" name="alamat-kecamatan" id="alamat-kecamatan" data-ids="district_id" style="width: calc(100% - 100px);" data-placeholder="Pilih Kota/kabupaten terlebih dahulu..." required disabled>
+                                                    <option value="" selected>Pilih Kota/kabupaten terlebih dahulu...</option>
                                                 </select>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
@@ -432,10 +427,8 @@
                                             <label for="alamat-desa">Kampung/desa</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="alamat-desa" id="alamat-desa"  style="width: calc(100% - 100px);" data-placeholder="Pilih Desa/kecamatan terlebih dahulu..." required>
-                                                    <option value="">Pilih Kewarganegaraan...</option>
-                                                    <option value="Indonesia" >WNI</option>
-                                                    <option value="Lainnya" >WNA</option>
+                                                <select class="form-control select2" name="alamat-desa" id="alamat-desa" data-ids="village_id" style="width: calc(100% - 100px);" data-placeholder="Pilih Desa/kecamatan terlebih dahulu..." required disabled>
+                                                <option value="" selected>Pilih Desa/kecamatan terlebih dahulu...</option>
                                                 </select>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
@@ -574,9 +567,8 @@
                                             <label for="jurusan-pilih">Jurusan yang dipilih</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="jurusan-pilih" id="jurusan-pilih"  style="width: calc(100% - 100px);" data-placeholder="Pilih jurusan yang diminati.." required>
-                                                    <option value="">Pilih jurusan yang diminati..</option>
-                                                    <option value="A+" >A+</option>
+                                                <select class="form-control" name="jurusan-pilih" id="jurusan-pilih" data-ids="jurusan" style="width: calc(100% - 100px);" data-placeholder="Pilih jurusan yang diminati.." required>
+                                                    <option value="" selected>Pilih jurusan yang diminati..</option>
                                                 </select>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text bg-light"><i class="fas fa-asterisk"></i></span>
@@ -794,7 +786,8 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <button class="btn btn-lg btn-block btn-primary btn-flat" type="submit">Registrasi</button>
+                                        <button type="button" class="btn btn-lg btn-block btn-primary btn-flat" id="btn-submit">Registrasi</button>
+                                        <button class="sr-only" type="submit"></button>
                                     </div>
 
                                 </div>
@@ -810,9 +803,25 @@
     </div>
 </div>
 <script>
-    $(document).ready(function () {
-        
+    //-------------- set main variables
+    var required_fields = $('.form-control[required]');
+    var fields = $('.form-control');
+    var form = $('form#form-register');
+    var field_provinces = $('#alamat-provinsi');
+    var field_regencies = $('#alamat-kota');
+    var field_districts = $('#alamat-kecamatan');
+    var field_villages = $('#alamat-desa');
+    var btn_submit = form.find('button#btn-submit');
+    const btn_submit_label = btn_submit.html();
+    var address_ids = {    
+        province_id : field_provinces.val(),
+        regency_id : field_regencies.val(),
+        district_id : field_districts.val(),
+        village_id : field_villages.val(),
+    }
 
+    $(document).ready(function () {
+    
         //-------------- some functions
         (function($) {
             $.fn.field_correction = function() {
@@ -845,16 +854,17 @@
                 }
             }
         }(jQuery));
-        //-------------- set main variables
-        var required_fields = $('.form-control[required]');
-        var fields = $('.form-control');
-        var form = $('form#form-register');
 
         //-------------- some scripts?
         fields.each(function (index, element) {
             var ini = $(this);
             var kueh = $.cookie(ini.attr('id'));
+            var address = ini.attr('data-ids');
             if (kueh!==null) {
+                if (address !== undefined) {
+                    ini.find('option').val(kueh).html('Terpilih');
+                    ini.trigger('change').removeAttr('disabled');
+                }
                 ini.val(kueh).trigger('change');
             }
         }).on('keyup',function (param) {
@@ -871,29 +881,139 @@
             $(this).field_correction();
         });
 
+
+        btn_submit.on('click',function (event) {
+            var ini = $(this);
+            ini.html('<i class="fa fa-spinner mr-2 fa-spin"></i>Memproses...').attr('disabled','disabled');
+            var btn_submit_label_changeable = ini.html();
+            var isValid = true;
+            required_fields.each(function (i, e) {
+                var itu = $(this);
+                if (itu.val()==''||itu.val()==null) {
+                    itu.val('').trigger('change');
+                    isValid = false;
+                }
+                if (i >= required_fields.length-1) {
+                    if (!isValid) {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            onOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'Masih ada data yang tidak valid'
+                        })
+                        ini.html(btn_submit_label).removeAttr('disabled');
+                    };
+                    form.find('button[type="submit"]').trigger('click')
+                };
+            })
+        })
+
         form.on('submit',function (event) {
             event.preventDefault();
             var data = form.serialize();
-            grecaptcha.ready(function() {
-                grecaptcha.execute('<?=getenv('CAPTCHA_KEYS')?>', {action:'validate_captcha'}).then(function(token) {
-                    data += '&token='+token;
-                }).then(function (param) {
-                    $.post('<?=base_url('Home/registering')?>', data,
-                        function (data, textStatus, jqXHR) {
-                            console.log(data);
-                        }
-                    );
-                });
-            });
+            // grecaptcha.ready(function() {
+            //     grecaptcha.execute('<?=getenv('CAPTCHA_KEYS')?>', {action:'validate_captcha'}).then(function(token) {
+            //         data += '&token='+token;
+            //     }).then(function (param) {
+            //         $.post(form.attr('action'), data,
+            //             function (data, textStatus, jqXHR) {
+            //                 console.log(data);
+            //             }
+            //         );
+            //     });
+            // });
+            $.post(form.attr('action'), data,
+                function (data, textStatus, jqXHR) {
+                    console.log(data);
+                }
+            );
         })
 
-        //--------------- basic initialization scripts
         $('.select2').select2();
+
+        switch_address(field_provinces,field_regencies);
+        switch_address(field_regencies,field_districts);
+        switch_address(field_districts,field_villages);
+
+        $('#asal-sekolah').select2({
+            ajax: {
+                url: '<?=getenv('SAS_URL')?>AJAX/PSB_getsekolah',
+                dataType: 'json'
+            }
+        });
+
+        $('#jurusan-pilih').select2({
+            ajax: {
+                url: '<?=getenv('SAS_URL')?>AJAX/PSB_getjurusan',
+                dataType: 'json'
+            }
+        });
+
+        field_provinces.select2({
+            ajax: {
+                url: '<?=getenv('SAS_URL')?>AJAX/Address_provinces',
+            }
+        })
+        
+        field_provinces.on('change',function () {
+            field_regencies.select2('destroy');
+            field_regencies.select2({
+                ajax: {
+                    url: '<?=getenv('SAS_URL')?>AJAX/Address_regencies',
+                    data: {
+                        'id': address_ids['province_id']
+                    },
+                }
+            })
+        });
+
+        field_regencies.on('change',function () {
+            field_districts.select2('destroy');
+            field_districts.select2({
+                ajax: {
+                    url: '<?=getenv('SAS_URL')?>AJAX/Address_districts',
+                    data: {
+                        'id': address_ids['regency_id']
+                    },
+                }
+            })
+        });
+
+        field_districts.on('change',function () {
+            field_villages.select2('destroy');
+            field_villages.select2({
+                ajax: {
+                    url: '<?=getenv('SAS_URL')?>AJAX/Address_villages',
+                    data: {
+                        'id': address_ids['district_id']
+                    },
+                }
+            })
+        });
+
         $('.date').datepicker({
             autoclose: true,
             format:'yyyy-mm-dd'
 		});
     });
+    function switch_address(parent,child) {
+        parent.on('change',function () {
+            if (parent.val()!=null) {
+                child.removeAttr('disabled');
+                child.val('').trigger('change');
+                address_ids[parent.attr('data-ids')] = parent.val();
+            }
+        })
+    }
 </script>
 <style>
     span.select2-selection {

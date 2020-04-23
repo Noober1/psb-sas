@@ -40,6 +40,10 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.:
 		// $this->session = \Config\Services::session();
+		if (getenv('MT_MODE')=='Y') {
+			header("Location: ".base_url('Maintenance'));
+			die;
+		}
 	}
 
 }

@@ -40,11 +40,17 @@ class Home extends BaseController
 	{
 		$token = $this->request->getVar('token');
 		$captcha = model('App\Models\Captcha');
-		if ($this->request->isAJAX() && $token) {
-			if ($token) {
-				var_dump($captcha->validasi($token));
+		$CRUD = model('App\Models\CRUD');
+		// $CRUD = \Config\Services::curlrequest();
+		
+		$get_valid = $captcha->validasi($token);
+		if ($this->request->isAJAX()) {
+			if ($get_valid['success']==true) {
+				// $response = $CRUD->request('GET',getenv('SAS_URL').'AJAX/PSB');
+				$response = $CRUD->get(['uri'=>'PSB']);
+				return $response;
 			} else {
-				return 'no token received';
+				var_dump($get_valid);
 			}
 			
 		} else {

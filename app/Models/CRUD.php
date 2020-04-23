@@ -10,10 +10,15 @@ class CRUD extends Model
         return \Config\Services::curlrequest();
     }
 
-    public function get($options)
+    public function post($options)
     {
         $opt = array('uri'=>'PSB','data'=>[]);
         $options = array_merge($opt,$options);
-        return $this->init()->request('GET',getenv('SAS_URL').'AJAX/'.$options['uri'].'',$options['data']);
+        return $this->init()->request(
+            'POST',
+            getenv('SAS_URL').'AJAX/'.$options['uri'],
+            [
+                'form_params' => $options['data']
+            ]);
     }
 }

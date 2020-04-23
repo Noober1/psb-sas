@@ -28,7 +28,7 @@
                 <form action="<?=base_url('Home/registering')?>" id="form-register" role="form" class="row">
                     
                     <div class="col-12">
-                        <div class="callout callout-info" id="note">
+                        <div class="callout callout-info elevation-1" id="note">
                             <h5>Catatan</h5>
                             <p>Silahkan untuk mengisi formulir di bawah ini. Kolom isian yang disampingnya terdapat <kbd> tanda '<i class="fa fa-asterisk"></i>' wajib diisi</kbd>. Anda dapat mengosongkannya jika ada kolom isian yang tidak diketahui dan/atau tidak terdapat tanda '<i class="fa fa-asterisk"></i>'</p>
                         </div>
@@ -46,7 +46,7 @@
                                             <label for="nisn">No. Induk Siswa Nasional (NISN)</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <input type="text" value="" class="form-control" id="nisn" name="nisn" placeholder="Terdiri dari 10 digit angka" maxlength="15" data-inputmask='"mask": "9999999999"' data-mask required>
+                                                <input type="text" value="" class="form-control" id="nisn" name="nisn" placeholder="Terdiri dari 10 digit angka" maxlength="10" data-inputmask='"mask": "9999999999"' data-mask required>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text bg-light"><i class="fa fa-asterisk"></i></span>
                                                 </div>
@@ -147,7 +147,7 @@
                                             <label for="jenis-kelamin">Jenis Kelamin</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="jenis-kelamin" id="jenis-kelamin"  style="width: calc(100% - 100px);" data-placeholder="Pilih Jenis Kelamin..." required>
+                                                <select class="form-control select2" name="jenis-kelamin" id="jenis-kelamin"  style="width: 90%;" data-placeholder="Pilih Jenis Kelamin..." required>
                                                     <option value="">Pilih Jenis Kelamin...</option>
                                                     <option value="L">Laki - Laki</option>
                                                     <option value="P">Perempuan</option>
@@ -174,7 +174,7 @@
 
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="tanggal-lahir">Tanggal Lahir (Tahun/Bulan/Tanggal)</label>
+                                            <label for="tanggal-lahir">Tanggal Lahir</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
                                                 <input type="date" value="" class="form-control date" id="tanggal-lahir" name="tanggal-lahir" autocomplete="off" placeholder="Pilih tanggal lahir" required>
@@ -212,7 +212,7 @@
                                             <label for="kewarganegaraan">Kewarganegaraan</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="kewarganegaraan" id="kewarganegaraan"  style="width: calc(100% - 100px);" data-placeholder="Pilih Kewarganegaraan..." required>
+                                                <select class="form-control select2" name="kewarganegaraan" id="kewarganegaraan"  style="width: 90%;" data-placeholder="Pilih Kewarganegaraan..." required>
                                                     <option value="">Pilih Kewarganegaraan...</option>
                                                     <option value="Indonesia" >WNI</option>
                                                     <option value="Lainnya" >WNA</option>
@@ -359,7 +359,7 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <div class="callout callout-info" id="note">
+                                        <div class="callout callout-info elevation-1" id="note">
                                             <h5 class="mb-0">Alamat</h5>
                                         </div>
                                     </div>
@@ -382,7 +382,7 @@
                                             <label for="alamat-provinsi">Provinsi</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                    <select class="form-control select2" name="alamat-provinsi" id="alamat-provinsi" data-ids="province_id" style="width: calc(100% - 100px);" data-placeholder="Pilih Provinsi..." required>
+                                                    <select class="form-control select2" name="alamat-provinsi" id="alamat-provinsi" data-ids="province_id" style="width: 90%;" data-placeholder="Pilih Provinsi..." required>
                                                     <option value="" selected>Pilih Provinsi...</option>
                                                 </select>
                                                 <div class="input-group-append">
@@ -397,7 +397,7 @@
                                             <label for="alamat-kota">Kabupaten/kota</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="alamat-kota" id="alamat-kota" data-ids="regency_id" style="width: calc(100% - 100px);" data-placeholder="Pilih provinsi terlebih dahulu..." required disabled>
+                                                <select class="form-control select2" name="alamat-kota" id="alamat-kota" data-ids="regency_id" style="width: 90%;" data-placeholder="Pilih provinsi terlebih dahulu..." required disabled>
                                                     <option value="" selected>Pilih provinsi terlebih dahulu...</option>
                                                 </select>
                                                 <div class="input-group-append">
@@ -412,7 +412,7 @@
                                             <label for="alamat-kecamatan">Desa/kecamatan</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="alamat-kecamatan" id="alamat-kecamatan" data-ids="district_id" style="width: calc(100% - 100px);" data-placeholder="Pilih Kota/kabupaten terlebih dahulu..." required disabled>
+                                                <select class="form-control select2" name="alamat-kecamatan" id="alamat-kecamatan" data-ids="district_id" style="width: 90%;" data-placeholder="Pilih Kota/kabupaten terlebih dahulu..." required disabled>
                                                     <option value="" selected>Pilih Kota/kabupaten terlebih dahulu...</option>
                                                 </select>
                                                 <div class="input-group-append">
@@ -427,7 +427,7 @@
                                             <label for="alamat-desa">Kampung/desa</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="alamat-desa" id="alamat-desa" data-ids="village_id" style="width: calc(100% - 100px);" data-placeholder="Pilih Desa/kecamatan terlebih dahulu..." required disabled>
+                                                <select class="form-control select2" name="alamat-desa" id="alamat-desa" data-ids="village_id" style="width: 90%;" data-placeholder="Pilih Desa/kecamatan terlebih dahulu..." required disabled>
                                                 <option value="" selected>Pilih Desa/kecamatan terlebih dahulu...</option>
                                                 </select>
                                                 <div class="input-group-append">
@@ -451,7 +451,7 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <div class="callout callout-info" id="note">
+                                        <div class="callout callout-info elevation-1" id="note">
                                             <h5 class="mb-0">Identitas tambahan</h5>
                                         </div>
                                     </div>
@@ -567,7 +567,7 @@
                                             <label for="jurusan-pilih">Jurusan yang dipilih</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control" name="jurusan-pilih" id="jurusan-pilih" data-ids="jurusan" style="width: calc(100% - 100px);" data-placeholder="Pilih jurusan yang diminati.." required>
+                                                <select class="form-control" name="jurusan-pilih" id="jurusan-pilih" data-ids="jurusan" style="width: 90%;" data-placeholder="Pilih jurusan yang diminati.." required>
                                                     <option value="" selected>Pilih jurusan yang diminati..</option>
                                                 </select>
                                                 <div class="input-group-append">
@@ -593,14 +593,14 @@
                                 <div class="row">
 
                                     <div class="col-12">
-                                        <div class="callout callout-info" id="note">
+                                        <div class="callout callout-info elevation-1" id="note">
                                             <h5 class="mb-0">Catatan</h5>
                                             <p>Jika Anda hanya mempunyai informasi tentang wali. Dipersilahkan untuk mengisi identitas wali berdasarkan jenis kelaminnya.</p>
                                         </div>
                                     </div>
 
                                     <div class="col-12">
-                                        <div class="callout callout-info" id="note">
+                                        <div class="callout callout-info elevation-1" id="note">
                                             <h5 class="mb-0">Identitas Ayah/Wali Laki - Laki</h5>
                                         </div>
                                     </div>
@@ -640,7 +640,7 @@
                                             <label for="pendidikan-ayah">Pendidikan terakhir</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="pendidikan-ayah" id="pendidikan-ayah"  style="width: calc(100% - 100px);" data-placeholder="Pilih pendidikan terakhir..">
+                                                <select class="form-control select2" name="pendidikan-ayah" id="pendidikan-ayah"  style="width: 90%;" data-placeholder="Pilih pendidikan terakhir..">
                                                     <option value="">Pilih Pendidikan Terakhir...</option>
                                                     <option value="PAUD" >PAUD</option>
                                                     <option value="TK" >TK</option>
@@ -693,7 +693,7 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <div class="callout callout-info" id="note">
+                                        <div class="callout callout-info elevation-1" id="note">
                                             <h5 class="mb-0">Identitas Ibu/Wali Perempuan</h5>
                                         </div>
                                     </div>
@@ -733,7 +733,7 @@
                                             <label for="pendidikan-ibu">Pendidikan terakhir</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="pendidikan-ibu" id="pendidikan-ibu"  style="width: calc(100% - 100px);" data-placeholder="Pilih pendidikan terakhir..">
+                                                <select class="form-control select2" name="pendidikan-ibu" id="pendidikan-ibu"  style="width: 90%;" data-placeholder="Pilih pendidikan terakhir..">
                                                     <option value="">Pilih Pendidikan Terakhir...</option>
                                                     <option value="PAUD" >PAUD</option>
                                                     <option value="TK" >TK</option>
@@ -785,13 +785,21 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12">
-                                        <button type="button" class="btn btn-lg btn-block btn-primary btn-flat" id="btn-submit">Registrasi</button>
-                                        <button class="sr-only" type="submit"></button>
-                                    </div>
-
                                 </div>
 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="card card-primary">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button type="button" class="btn btn-lg btn-block btn-primary btn-flat" id="btn-submit"><i class="fa fa-sign-in-alt mr-2"></i>Registrasi</button>
+                                        <button class="sr-only" type="submit"></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -931,10 +939,32 @@
             //         );
             //     });
             // });
-            $.post(form.attr('action'), data,
-                function (data, textStatus, jqXHR) {
-                    console.log(data);
-                }
+            $.post(form.attr('action'), data, function (data, textStatus, jqXHR) {
+                    var iconType = 'success';
+                    var html = '<h2>Registrasi berhasil.</h2><p>Anda berhasil melakukan pendaftaran, Anda akan di arahkan menuju halaman utama...</p>';
+                    var showCancel = false;
+                    btn_submit.removeAttr('disabled').html(btn_submit_label);
+                    if (data.response.success===true) {
+                        clear_kueh();
+                    } else {
+                        showCancel = true;
+                        iconType='error';
+                        html='<h2>Registrasi gagal</h2><p>Silahkan periksa error di bawah ini</p>';
+                        for (let index = 0; index < data.response.errors.length; index++) {
+                            html += '<h4 class="bg-dark text-light">'+data.response.errors[index]+'</h4>';
+                        }
+                        html += '<p>Silahkan untuk menutup dialog ini dan perbaiki. Setelah itu dipersilahkan untuk mencoba kembali</p>';
+                    }
+                    Swal.fire({
+                        icon: iconType,
+                        html: html,
+                        showCloseButton: false,
+                        showCancelButton: showCancel,
+                        showConfirmButton:false,
+                        cancelButtonText:'<i class="fa fa-times"></i> Kembali',
+                        cancelButtonAriaLabel: 'Tutup',
+                    })
+                },"JSON"
             );
         })
 
@@ -1013,6 +1043,13 @@
                 address_ids[parent.attr('data-ids')] = parent.val();
             }
         })
+    }
+
+    function clear_kueh() {
+        fields.each(function (index, element) {
+            var ini = $(this);
+            $.removeCookie(ini.attr('id'));
+        });
     }
 </script>
 <style>

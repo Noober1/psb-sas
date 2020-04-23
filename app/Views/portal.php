@@ -30,18 +30,18 @@
 			<div class="row text-center">
 				<div class="col-12 mt-4 mb-4">
 					<h1 class="display-3 text-bold">Selamat datang</h1>
-					<h3>Selamat datang di situs Pendaftaran Siswa Baru (PSB) <?=getenv('SCHOOL_NAME')?>.<br>Silahkan memilih menu di bawah ini untuk memulai</h3>
+					<h3>Selamat datang di situs Pendaftaran Siswa Baru (PSB) <strong><?=getenv('SCHOOL_NAME')?></strong>.<br>Silahkan memilih menu di bawah ini untuk memulai</h3>
 				</div>
 				<div class="col-12">
 					<button id="btn-info" class="btn btn-light btn-lg mr-1 ml-1 mb-2"><i class="fa mr-3 fa-info"></i> Informasi</button>
-					<button id="btn-terms" class="btn bg-info btn-lg mr-1 ml-1 mb-2"><i class="fa mr-3 fa-pen"></i> Persyaratan</button>
+					<button id="btn-terms" class="btn bg-info btn-lg mr-1 ml-1 mb-2"><i class="fa mr-3 fa-book-open"></i> Persyaratan</button>
 					<button id="btn-cs" class="btn bg-purple btn-lg mr-1 ml-1 mb-2"><i class="fa mr-3 fa-id-card"></i> Contact Person</button>
 				</div>
 				<div class="col-12 mt-5 mb-4">
 					<p>Sudah membaca informasi dan persyaratan?<br>Silahkan untuk mendaftar atau login jika ingin melihat informasi pendaftaran yang telah Anda lakukan</p>
 				</div>
 				<div class="col 12">
-					<a href="<?=base_url('Register')?>" class="btn btn-primary btn-lg mr-1 ml-1 mb-2"><i class="fa mr-3 fa-book-open"></i> Pendaftaran Daring</a>
+					<a href="<?=base_url('Register')?>" class="btn btn-primary btn-lg mr-1 ml-1 mb-2"><i class="fa mr-3 fa-pen"></i> Pendaftaran Daring</a>
 					<a href="<?=base_url('login')?>" class="btn btn-success btn-lg mr-1 ml-1 mb-2"><i class="fa mr-3 fa-door-open"></i> Log-In</a>
 				</div>
 			</div>

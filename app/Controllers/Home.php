@@ -38,21 +38,26 @@ class Home extends BaseController
 
 	public function registering()
 	{
+		$res = array(
+			'success'=>true
+		);
 		$token = $this->request->getVar('token');
 		$captcha = model('App\Models\Captcha');
 		$CRUD = model('App\Models\CRUD');
-		// $CRUD = \Config\Services::curlrequest();
 		
 		$get_valid = $captcha->validasi($token);
 		if ($this->request->isAJAX()) {
 			if ($get_valid['success']==true) {
-				// $response = $CRUD->request('GET',getenv('SAS_URL').'AJAX/PSB');
-				$response = $CRUD->get(['uri'=>'PSB']);
-				return $response;
+				$send_options = [
+					'uri'=>'PSB',
+					'data'=> $this->request->getVar()
+				];
+				$response = $CRUD->post($send_options);
+				$res['response'] = json_decode($response->getBody());
 			} else {
 				var_dump($get_valid);
 			}
-			
+			return json_encode($res);
 		} else {
 			return redirect()->to(base_url());
 		}

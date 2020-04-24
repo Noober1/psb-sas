@@ -8,6 +8,7 @@ class Home extends BaseController
 		$custom = new \Config\Custom();
 		$res = array(
 			'load_toast'	=> TRUE,
+			'load_animatemodal'	=> FALSE,
 		);
 		$data = [
 			'page_title'		=> $custom->pageTitle('Selamat datang'),
@@ -28,7 +29,7 @@ class Home extends BaseController
 			'load_jscookie'		=> TRUE
 		);
 		$data = [
-			'page_title'		=> $custom->pageTitle('Selamat datang'),
+			'page_title'		=> $custom->pageTitle('Pendaftaran Daring'),
 			'page_content'		=> 'register',
 			'res_css'			=> $custom->resourceLoader($res,'css'),
 			'res_js'			=> $custom->resourceLoader($res,'js')

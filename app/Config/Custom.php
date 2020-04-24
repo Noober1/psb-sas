@@ -24,7 +24,9 @@ class Custom extends \CodeIgniter\Config\BaseConfig
             'load_toast'        => FALSE,
             'load_texteditor'   => FALSE,
             'load_osbar'        => TRUE,
-            'load_jscookie'     => FALSE
+            'load_jscookie'     => FALSE,
+            'load_fakeloader'   => TRUE,
+            'load_animatemodal'   => FALSE,
         );
         $opt = array_merge($opt,$res);
         $css = array(
@@ -39,6 +41,8 @@ class Custom extends \CodeIgniter\Config\BaseConfig
             'load_texteditor'   => '<link rel="stylesheet" href="'.getenv('RES_URL').'lte3/summernote/summernote.min.js">',
             'load_osbar'        => '<link rel="stylesheet" href="'.getenv('RES_URL').'lte/overlayScrollbars/css/OverlayScrollbars.css">',
             'load_jscookie'     => '',
+            'load_fakeloader'   => '<link rel="stylesheet" href="'.getenv('RES_URL').'plugins/jq-fakeloader/dist/fakeLoader.min.css">',
+            'load_animatemodal' => '',
         );
         $js = array(
             'load_lte'          => '<script src="'.getenv('RES_URL').'lte3/bootstrap/js/bootstrap.bundle.min.js"></script><script src="'.getenv('RES_URL').'lte3/lte/js/adminlte.min.js"></script>',
@@ -52,6 +56,8 @@ class Custom extends \CodeIgniter\Config\BaseConfig
             'load_texteditor'   => '',
             'load_osbar'        => '<script src="'.getenv('RES_URL').'lte/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>',
             'load_jscookie'     => '<script src="'.getenv('RES_URL').'lte3/jquery/jquery.cookie.js"></script>',
+            'load_fakeloader'   => '<script src="'.getenv('RES_URL').'plugins/jq-fakeloader/dist/fakeLoader.min.js"></script>',
+            'load_animatemodal' => '<script src="'.getenv('RES_URL').'plugins/animatedModal/animatedModal.min.js"></script>',
         );
         if (count($opt)==count($css)&&count($opt)==count($js)) {
             $keys = array_keys($opt);

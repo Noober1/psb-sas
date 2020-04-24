@@ -49,7 +49,7 @@ class Home extends BaseController
 		
 		$get_valid = $captcha->validasi($token);
 		if ($this->request->isAJAX()) {
-			if ($get_valid['success']==true&&$get_valid['score'] > 7) {
+			if ($get_valid['success']==true&&$get_valid['score'] > getenv('CAPTCHA_MIN_SCORE')) {
 				$send_options = [
 					'uri'=>'PSB',
 					'data'=> $this->request->getVar()

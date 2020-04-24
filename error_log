@@ -1,0 +1,10 @@
+[Fri Apr 24 19:30:13.496634 2020] [core:alert] [pid 11360:tid 1960] [client ::1:49357] D:/FOLDER CUCU/project/psb-sas/.htaccess: Options not allowed here
+::1 - - [24/Apr/2020:19:30:13 +0700] "GET / HTTP/1.1" 500 1089
+[Fri Apr 24 19:30:14.528482 2020] [core:alert] [pid 11360:tid 1964] [client ::1:49358] D:/FOLDER CUCU/project/psb-sas/.htaccess: Options not allowed here
+::1 - - [24/Apr/2020:19:30:14 +0700] "GET / HTTP/1.1" 500 1089
+[Fri Apr 24 19:31:27.348270 2020] [core:alert] [pid 3416:tid 1968] [client ::1:49786] D:/FOLDER CUCU/project/psb-sas/.htaccess: Options not allowed here
+::1 - - [24/Apr/2020:19:31:27 +0700] "GET / HTTP/1.1" 500 1089
+[Fri Apr 24 19:31:28.264235 2020] [core:alert] [pid 3416:tid 1960] [client ::1:49787] D:/FOLDER CUCU/project/psb-sas/.htaccess: Options not allowed here
+::1 - - [24/Apr/2020:19:31:28 +0700] "GET / HTTP/1.1" 500 1089
+[Fri Apr 24 19:31:28.919526 2020] [core:alert] [pid 3416:tid 1968] [client ::1:49807] D:/FOLDER CUCU/project/psb-sas/.htaccess: Options not allowed here
+::1 - - [24/Apr/2020:19:31:28 +0700] "GET / HTTP/1.1" 500 1089

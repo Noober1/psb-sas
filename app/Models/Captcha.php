@@ -10,13 +10,14 @@ class Captcha extends Model
 		$send_response = array(
 			'success'	=> TRUE,
 			'errors'	=> array(),
-			'response'	=> NULL
+            'score'     => 9.9,
+            'msg'       => array()
         );
         
         if (getenv('CAPTCHA_ENABLE')==="Y") {
             if(!$token){
                 $send_response['success'] = FALSE;
-                $send_response['errors'] = array('Missing token');
+                $send_response['errors'][] = 'Missing token';
             } else {
                 $secretKey = getenv('CAPTCHA_SECRET');
                 $response = file_get_contents(
@@ -28,11 +29,13 @@ class Captcha extends Model
                     $send_response['errors'] = $response;
                 } else {
                     $send_response['success'] = TRUE;
-                    $send_response['response'] = $response;
+                    foreach ($response as $key => $value) {
+                        $send_response[$key] = $value;
+                    }
                 }
             }
         } else {
-            $send_response['response']  = array('Valid cause CAPTCHA validation was disabled');
+            $send_response['msg'][]  = 'Valid cause CAPTCHA validation was disabled';
         }
 
 		return $send_response;

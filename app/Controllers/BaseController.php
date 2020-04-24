@@ -39,8 +39,19 @@ class BaseController extends Controller
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.:
-		// $this->session = \Config\Services::session();
-		if (getenv('MT_MODE')=='Y') {
+		$this->session = \Config\Services::session();
+		$dev_access = $this->session->get('devmode')!=null ? 'on' : 'off';
+
+		$devmode = $this->request->getVar('devmode');
+		if ($devmode!==null) {
+			if ($devmode=='on') {
+				$this->session->set(['devmode'=>true]);
+			} else {
+				$this->session->remove('devmode');
+			}
+		}
+
+		if (getenv('MT_MODE')=='Y'&&$dev_access==='off') {
 			header("Location: ".base_url('Maintenance'));
 			die;
 		}

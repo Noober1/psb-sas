@@ -39,15 +39,16 @@ class Home extends BaseController
 	public function registering()
 	{
 		$res = array(
-			'success'=>true
+			'success'	=>true,
+			'errors'	=> array()
 		);
-		$token = $this->request->getVar('token');
+		$token = getenv('CAPTCHA_ENABLE')=='Y' ? $this->request->getVar('token') : 'No token';
 		$captcha = model('App\Models\Captcha');
 		$CRUD = model('App\Models\CRUD');
 		
 		$get_valid = $captcha->validasi($token);
 		if ($this->request->isAJAX()) {
-			if ($get_valid['success']==true) {
+			if ($get_valid['success']==true&&$get_valid['score'] > 7) {
 				$send_options = [
 					'uri'=>'PSB',
 					'data'=> $this->request->getVar()
@@ -55,8 +56,14 @@ class Home extends BaseController
 				$response = $CRUD->post($send_options);
 				$res['response'] = json_decode($response->getBody());
 			} else {
-				var_dump($get_valid);
+				$res['success'] = false;
+				if ($get_valid['success']==true&&$get_valid['score'] <= getenv('CAPTCHA_MIN_SCORE')) {
+					$res['errors'][] = 'Boo beep bee boop?';
+				} else {
+					$res['errors'][] = $get_valid;
+				}
 			}
+			$res['captcha_response'] = $get_valid;
 			return json_encode($res);
 		} else {
 			return redirect()->to(base_url());

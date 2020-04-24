@@ -928,32 +928,26 @@
         form.on('submit',function (event) {
             event.preventDefault();
             var data = form.serialize();
-            // grecaptcha.ready(function() {
-            //     grecaptcha.execute('<?=getenv('CAPTCHA_KEYS')?>', {action:'validate_captcha'}).then(function(token) {
-            //         data += '&token='+token;
-            //     }).then(function (param) {
-            //         $.post(form.attr('action'), data,
-            //             function (data, textStatus, jqXHR) {
-            //                 console.log(data);
-            //             }
-            //         );
-            //     });
-            // });
-            $.post(form.attr('action'), data, function (data, textStatus, jqXHR) {
-                    var iconType = 'success';
-                    var html = '<h2>Registrasi berhasil.</h2><p>Anda berhasil melakukan pendaftaran, Anda akan di arahkan menuju halaman utama...</p>';
-                    var showCancel = false;
-                    btn_submit.removeAttr('disabled').html(btn_submit_label);
-                    if (data.response.success===true) {
-                        clear_kueh();
-                    } else {
-                        showCancel = true;
-                        iconType='error';
-                        html='<h2>Registrasi gagal</h2><p>Silahkan periksa error di bawah ini</p>';
-                        for (let index = 0; index < data.response.errors.length; index++) {
-                            html += '<h4 class="bg-dark text-light">'+data.response.errors[index]+'</h4>';
+            btn_submit.removeAttr('disabled').html(btn_submit_label);
+            var submit_form = function (data) {
+                $.post(form.attr('action'), data, function (data, textStatus, jqXHR) {
+                    var showCancel = true;
+                    var iconType='error';
+                    var html='<h2>Registrasi gagal</h2><p>Silahkan periksa error di bawah ini</p>';
+                    if (data.success) {
+                        if (data.response.success) {
+                            var iconType = 'success';
+                            var html = '<h2>Registrasi berhasil.</h2><p>Anda berhasil melakukan pendaftaran, Anda akan di arahkan menuju halaman utama...</p>';
+                            var showCancel = false;
+                            clear_kueh();
+                        } else {
+                            for (let index = 0; index < data.response.errors.length; index++) {
+                                html += '<h4 class="bg-dark text-light">'+data.response.errors[index]+'</h4>';
+                            }
+                            html += '<p>Silahkan untuk menutup dialog ini dan perbaiki. Setelah itu dipersilahkan untuk mencoba kembali</p>';
                         }
-                        html += '<p>Silahkan untuk menutup dialog ini dan perbaiki. Setelah itu dipersilahkan untuk mencoba kembali</p>';
+                    } else {
+                        html += '<h4 class="bg-dark text-light">Boob Beep Bee Boop?</h4>';
                     }
                     Swal.fire({
                         icon: iconType,
@@ -964,8 +958,19 @@
                         cancelButtonText:'<i class="fa fa-times"></i> Kembali',
                         cancelButtonAriaLabel: 'Tutup',
                     })
-                },"JSON"
-            );
+                },"JSON");
+            }
+            if (typeof grecaptcha !== 'undefined') {
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('<?=getenv('CAPTCHA_KEYS')?>', {action:'validate_captcha'}).then(function(token) {
+                        data += '&token='+token;
+                    }).then(function (param) {
+                        submit_form(data);
+                    });
+                });
+            } else {
+                submit_form(data);
+            }
         })
 
         $('.select2').select2();

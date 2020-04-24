@@ -6,7 +6,8 @@ class Maintenance extends Controller
 {
     public function index()
     {
-        if (getenv('MT_MODE')=="Y") {
+        $session = \Config\Services::session();
+        if (!$session->get('devmode')&&getenv('MT_MODE')=='Y') {
             return view('maintenance');
         } else {
             return redirect()->to(base_url());

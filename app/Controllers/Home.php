@@ -8,14 +8,14 @@ class Home extends BaseController
 		$custom = new \Config\Custom();
 		$res = array(
 			'load_toast'	=> TRUE,
-			'load_animatemodal'	=> FALSE,
+			'load_modal'	=> TRUE,
 		);
 		$data = [
 			'page_title'		=> $custom->pageTitle('Selamat datang'),
 			'page_content'		=> 'portal',
 			'res_css'			=> $custom->resourceLoader($res,'css'),
 			'res_js'			=> $custom->resourceLoader($res,'js'),
-			'custom_body_style' => 'background-image: url(https://smkbintarjalancagak.sch.id/wp-content/uploads/2019/09/BANGUNAN1.jpg);background-position: center;background-repeat: no-repeat;background-size: cover;'
+			'custom_body_style' => ''
 		];
 		return view('templates/base',$data);
 	}
@@ -26,7 +26,8 @@ class Home extends BaseController
 		$res = array(
 			'load_toast'		=> TRUE,
 			'load_datepicker'	=> TRUE,
-			'load_jscookie'		=> TRUE
+			'load_jscookie'		=> TRUE,
+			'load_inputmask'	=> TRUE,
 		);
 		$data = [
 			'page_title'		=> $custom->pageTitle('Pendaftaran Daring'),

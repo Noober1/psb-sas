@@ -46,7 +46,7 @@
                                             <label for="nisn">No. Induk Siswa Nasional (NISN)</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <input type="text" value="" class="form-control is-required" id="nisn" name="nisn" placeholder="Terdiri dari 10 digit angka" maxlength="10" data-inputmask='"mask": "9999999999"' data-mask required>
+                                                <input type="text" value="" class="form-control inputmask is-required" id="nisn" name="nisn" placeholder="Terdiri dari 10 digit angka" maxlength="10" data-inputmask='"mask": "9999999999"' required>
                                             </div>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@
                                         <div class="form-group">
                                             <label for="no-kipkps">No. KIP/KPS</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
-                                            <input type="text" value="" class="form-control is-required" id="no-kipkps" name="no-kipkps" maxlength="14" placeholder="Isi jika memiliki, maksimal 14 karakter" data-inputmask='"mask": "999999999999999"' data-mask>
+                                            <input type="text" value="" class="form-control is-required" id="no-kipkps" name="no-kipkps" maxlength="14" placeholder="Isi jika memiliki, maksimal 14 karakter" data-inputmask='"mask": "999999999999999"'>
                                         </div>
                                     </div>
 
@@ -63,7 +63,7 @@
                                         <div class="form-group">
                                             <label for="no-un">No. Ujian Nasional</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
-                                            <input type="text" value="" class="form-control" id="no-un" name="no-un" maxlength="25" placeholder="Maksimal 25 karakter, contoh: 2-22-22-22-2222-2222-2" data-inputmask='"mask": "9-99-99-99-9999-9999-9"' data-mask>
+                                            <input type="text" value="" class="form-control" id="no-un" name="no-un" maxlength="25" placeholder="Maksimal 25 karakter, contoh: 2-22-22-22-2222-2222-2" data-inputmask='"mask": "9-99-99-99-9999-9999-9"'>
                                         </div>
                                     </div>
 
@@ -85,10 +85,10 @@
 
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="no-telpon">No. Telpon Siswa (HP)</label>
+                                            <label for="no-telpon">No. Telpon Siswa (HP)</label><small><i class="fa ml-2 mr-2 fa-info-circle"></i>Tanpa menggunakan kode negara (+62)</small>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <input type="text" value="" class="form-control" id="no-telpon" name="no-telpon" placeholder="Terdiri dari 15 digit angka" maxlength="15" required>
+                                                <input type="text" value="" class="form-control inputmask" id="no-telpon" name="no-telpon" data-inputmask="'mask': '9999 9999 9999'" placeholder="Terdiri dari 15 digit angka" maxlength="15" required>
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                             <label for="jenis-kelamin">Jenis Kelamin</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="jenis-kelamin" id="jenis-kelamin"   data-placeholder="Pilih Jenis Kelamin..." required>
+                                                <select class="form-control select2-nosearch" name="jenis-kelamin" id="jenis-kelamin"   data-placeholder="Pilih Jenis Kelamin..." required>
                                                     <option value="">Pilih Jenis Kelamin...</option>
                                                     <option value="L">Laki - Laki</option>
                                                     <option value="P">Perempuan</option>
@@ -152,7 +152,7 @@
                                             <label for="tempat-lahir">Tempat Lahir</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <input type="text" value="" class="form-control text-capitalize" id="tempat-lahir" name="tempat-lahir" maxlength="20" placeholder="Maksimal 20 karakter" required>
+                                                <input type="text" value="" class="form-control text-capitalize is-required" id="tempat-lahir" name="tempat-lahir" maxlength="20" placeholder="Maksimal 20 karakter" required>
                                             </div>
                                         </div>
                                     </div>
@@ -169,7 +169,7 @@
 
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="agama-siswa">Agama</label>
+                                            <label for="agama-siswa">Agama <i class="fa fa-asterisk"></i></label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
                                                 <select class="form-control select2" name="agama-siswa" id="agama-siswa"  style="width:calc(100% - 70px);" data-placeholder="Pilih Agama..." required>
@@ -188,10 +188,10 @@
 
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="kewarganegaraan">Kewarganegaraan</label>
+                                            <label for="kewarganegaraan">Kewarganegaraan <i class="fa fa-asterisk"></i></label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="kewarganegaraan" id="kewarganegaraan"   data-placeholder="Pilih Kewarganegaraan..." required>
+                                                <select class="form-control select2-nosearch" name="kewarganegaraan" id="kewarganegaraan"   data-placeholder="Pilih Kewarganegaraan..." required>
                                                     <option value="">Pilih Kewarganegaraan...</option>
                                                     <option value="Indonesia" >WNI</option>
                                                     <option value="Lainnya" >WNA</option>
@@ -210,13 +210,13 @@
                                                         Anak Ke
                                                     </span>
                                                 </div>
-                                                <input type="number" value="" min="1" max="99" max-length="2" class="form-control" id="anak-ke" name="anak-ke" required>
+                                                <input type="text" value="" data-min="1" data-max="99" max-length="2" class="form-control inputmask num-validator" data-inputmask='"mask": "99"' id="anak-ke" name="anak-ke" required placeholder="Anak ke">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">
                                                         Dari
                                                     </span>
                                                 </div>
-                                                <input type="number" value="" min="1" max="99" max-length="2" class="form-control" id="anak-dari" name="anak-dari" required>
+                                                <input type="text" value="" data-min="1" data-max="99" max-length="2" class="form-control inputmask num-validator" data-inputmask='"mask": "99"' id="anak-dari" name="anak-dari" placeholder="Anak dari" required>
                                             </div>
                                         </div>
                                     </div>
@@ -231,26 +231,26 @@
                                                         Kandung
                                                     </span>
                                                 </div>
-                                                <input type="number" value="" min="0" max="99" max-length="2" class="form-control" id="saudara-kandung" name="saudara-kandung" required>
+                                                <input type="text" value="" data-min="0" data-max="99" max-length="2" class="form-control inputmask num-validator" data-inputmask='"mask": "99"' id="saudara-kandung" name="saudara-kandung" placeholder="Kandung" required>
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">
                                                         Tiri
                                                     </span>
                                                 </div>
-                                                <input type="number" value="" min="0" max="99" max-length="2" class="form-control" id="saudara-tiri" name="saudara-tiri" required>
+                                                <input type="text" value="" data-min="0" data-max="99" max-length="2" class="form-control inputmask num-validator" data-inputmask='"mask": "99"' id="saudara-tiri" name="saudara-tiri" placeholder="Tiri" required>
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">
                                                         Angkat
                                                     </span>
                                                 </div>
-                                                <input type="number" value="" min="0" max="99" max-length="2" class="form-control" id="saudara-angkat" name="saudara-angkat" required>
+                                                <input type="text" value="" data-min="0" data-max="99" max-length="2" class="form-control inputmask num-validator" data-inputmask='"mask": "99"' id="saudara-angkat" placeholder="Angkat" name="saudara-angkat" required>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="status-keluarga">Status Keluarga</label>
+                                            <label for="status-keluarga">Status Keluarga <i class="fa fa-asterisk"></i></label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
                                                 <select class="form-control select2" name="status-keluarga" id="status-keluarga"  style="width:calc(100% - 200px)" data-placeholder="Pilih Status..." required>
@@ -276,10 +276,11 @@
 
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="pendidikan-terakhir">Pendidikan terakhir</label><small><i class="fa ml-2 mr-2 fa-info-circle"></i>Jika nama sekolah tidak ada, silahkan pilih 'Lainnya...'</small>
-                                            <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small><br>
+                                            <label for="pendidikan-terakhir">Pendidikan terakhir <i class="fa fa-asterisk"></i></label><small><i class="fa ml-2 mr-2 fa-info-circle"></i>Jika nama sekolah tidak ada, silahkan pilih 'Lainnya...'</small>
+                                            <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group">
-                                                <select class="form-control flat select2" name="pendidikan-terakhir" id="pendidikan-terakhir" style="width:100px" data-placeholder="Pilih Jenjang..." required>
+                                                <select class="form-control flat select2" name="pendidikan-terakhir" data-ids="" id="pendidikan-terakhir" data-placeholder="Pilih Jenjang..." required>
+                                                    <option value="" selected>Jenjang...</option>
                                                     <option value="PAUD" >PAUD</option>
                                                     <option value="TK" >TK</option>
                                                     <option value="SD" >SD</option>
@@ -302,7 +303,7 @@
                                             <label for="tahun-lulus">Tahun Lulus</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group">
-                                                <input type="number" value="<?=date('Y')?>" min="1950" max="<?=date('Y')?>" max-length="4" class="form-control" placeholder="Tahun lulus pendidikan terakhir" id="tahun-lulus" name="tahun-lulus" required>
+                                                <input type="text" value="" data-min="4" data-max="4" max-length="2" class="form-control inputmask num-validator" data-inputmask='"mask": "9999"'  placeholder="Tahun lulus pendidikan terakhir" id="tahun-lulus" name="tahun-lulus" required>
                                             </div>
                                         </div>
                                     </div>
@@ -376,7 +377,7 @@
                                             <label for="kode-pos">Kode POS</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <input type="number" value="" class="form-control" id="kode-pos" name="kode-pos" maxlength="5" min="10000" max="99999" placeholder="Maksimal 5 karakter" required>
+                                                <input type="text" value="" class="form-control inputmask num-validator" data-min="5" data-max="5" id="kode-pos" name="kode-pos" maxlength="5" data-inputmask="'mask': '99999'" placeholder="Maksimal 5 karakter" required>
                                             </div>
                                         </div>
                                     </div>
@@ -402,14 +403,14 @@
                                             <label for="tinggal-bersama">Tinggal Bersama</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <input type="text" value="" maxlength="20" class="form-control" id="tinggal-bersama" name="tinggal-bersama" placeholder="Contoh: orang tua/kost/dll" required>
+                                                <input type="text" value="" maxlength="20" class="form-control text-capitalize" id="tinggal-bersama" name="tinggal-bersama" placeholder="Contoh: orang tua/kost/dll" required>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="col-sm-12 col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="tinggi-badan">Tinggi/Berat Badan</label>
+                                            <label for="tinggi-badan">Tinggi/Berat Badan (CM/KG)</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -418,18 +419,12 @@
                                                     </span>
                                                 </div>
                                                 <input type="number" value="" min="1" max="999" max-length="3" class="form-control" id="tinggi-badan" name="tinggi-badan">
-                                                <div class="input-group-append">
-                                                    <div class="input-group-text">CM</div>
-                                                </div>
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">
                                                         Berat
                                                     </span>
                                                 </div>
                                                 <input type="number" value="" min="1" max="999" max-length="3" class="form-control" id="berat-badan" name="berat-badan">
-                                                <div class="input-group-append">
-                                                    <div class="input-group-text">KG</div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -452,7 +447,7 @@
                                             <label for="golongan-darah">Golongan darah</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="golongan-darah" id="golongan-darah"  style="width: 100%;" data-placeholder="Pilih Golongan Darah..">
+                                                <select class="form-control select2-nosearch" name="golongan-darah" id="golongan-darah"  style="width: 100%;" data-placeholder="Pilih Golongan Darah..">
                                                     <option value="">Pilih Golongan Darah..</option>
                                                     <option value="A+" >A+</option>
                                                     <option value="A-" >A-</option>
@@ -562,7 +557,7 @@
                                             <label for="pendidikan-ayah">Pendidikan terakhir</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <select class="form-control select2" name="pendidikan-ayah" id="pendidikan-ayah"   data-placeholder="Pilih pendidikan terakhir..">
+                                                <select class="form-control select2" name="pendidikan-ayah" id="pendidikan-ayah" data-placeholder="Pilih pendidikan terakhir..">
                                                     <option value="">Pilih Pendidikan Terakhir...</option>
                                                     <option value="PAUD" >PAUD</option>
                                                     <option value="TK" >TK</option>
@@ -599,7 +594,7 @@
                                             <label for="penghasilan-ayah">Penghasilan perbulan</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <input type="number" value="" min="1" max="9999999999" class="form-control" id="penghasilan-ayah" name="penghasilan-ayah" placeholder="Masukan nominal penghasilan perbulan" maxlength="10">
+                                                <input type="text" value="" class="form-control inputmask" id="penghasilan-ayah" data-inputmask="'alias': 'numeric','rightAlign':'false', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'prefix': 'Rp ', 'placeholder': '0'" placeholder="Masukan nominal penghasilan perbulan" maxlength="10">
                                             </div>
                                         </div>
                                     </div>
@@ -692,7 +687,7 @@
                                             <label for="penghasilan-ibu">Penghasilan perbulan</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <input type="number" value="" min="1" max="9999999999" class="form-control" id="penghasilan-ibu" name="penghasilan-ibu" placeholder="Masukan nominal penghasilan perbulan" maxlength="10">
+                                                <input type="text" value="" class="form-control inputmask" data-inputmask="'alias': 'numeric','rightAlign':'false', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'prefix': 'Rp ', 'placeholder': '0'" id="penghasilan-ibu" name="penghasilan-ibu" placeholder="Masukan nominal penghasilan perbulan" maxlength="10">
                                             </div>
                                         </div>
                                     </div>
@@ -760,38 +755,51 @@
                 var count = ini.attr('maxlength');
                 var parent = ini.closest('.form-group');
                 let label = parent.find('label');
-                let error_dialog = parent.find('small');
+                let error_dialog = parent.find('small.text-danger');
                 var nilai = ini.val();
 
+                var numValidator = function () {
+                    if (ini.hasClass('num-validator')) {
+                        var p = ini.val().length;
+                        var min = ini.attr('data-min');
+                        var max = ini.attr('data-max');
+                        return p>=min&&p<=max ? true : false;
+                    } else {
+                        return true;
+                    }
+                }
+
                 var emailValid = function(ini) {
-                    var value = ini.val();
                     if (ini.attr('type')=='email') {
                         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                        return re.test(String(value).toLowerCase());
+                        return re.test(String(ini.val()).toLowerCase());
                     } else {
                         return true;
                     }
                 };
 
-                var isValid = (nilai!=="" && emailValid(ini));
+                var isValid = (nilai!=="" && emailValid(ini) && numValidator());
                 
                 if (isValid) {
                     ini.addClass('is-valid').removeClass('is-invalid');
                     error_dialog.removeClass('d-block');
+                    return true;
                 } else {
                     ini.addClass('is-invalid').removeClass('is-valid');
                     error_dialog.addClass('d-block');
+                    return false;
                 }
             }
         }(jQuery));
 
         //-------------- some scripts?
+        $("body").overlayScrollbars({ className : "os-theme-dark" });
         fields.each(function (index, element) {
             var ini = $(this);
             var kueh = $.cookie(ini.attr('id'));
             var address = ini.attr('data-ids');
             if (kueh!==null) {
-                if (address !== undefined) {
+                if (address !== undefined && address!=='') {
                     ini.find('option').val(kueh).html('Terpilih');
                     ini.trigger('change').removeAttr('disabled');
                 }
@@ -819,10 +827,14 @@
             var isValid = true;
             required_fields.each(function (i, e) {
                 var itu = $(this);
-                if (itu.val()==''||itu.val()==null) {
-                    itu.val('').trigger('change');
+                if (!itu.field_correction()) {
+                    itu.focus();
                     isValid = false;
                 }
+                // if (itu.val()==''||itu.val()==null) {
+                //     itu.val('').trigger('change');
+                //     isValid = false;
+                // }
                 if (i >= required_fields.length-1) {
                     if (!isValid) {
                         const Toast = Swal.mixin({
@@ -840,11 +852,12 @@
                             icon: 'error',
                             title: 'Masih ada data yang tidak valid'
                         })
-                        ini.html(btn_submit_label).removeAttr('disabled');
-                    };
-                    form.find('button[type="submit"]').trigger('click')
+                    } else {
+                        form.find('button[type="submit"]').trigger('click');
+                    }
                 };
             })
+            ini.html(btn_submit_label).removeAttr('disabled');
         })
 
         form.on('submit',function (event) {
@@ -894,31 +907,40 @@
                 submit_form(data);
             }
         })
-
+        $('.inputmask').inputmask({
+            placeholder: ''
+        });
         $('.select2').select2();
+        $('.select2-nosearch').select2({
+            minimumResultsForSearch: -1
+        });
 
         switch_address(field_provinces,field_regencies);
         switch_address(field_regencies,field_districts);
         switch_address(field_districts,field_villages);
 
         $('#asal-sekolah').select2({
-            theme:'classic',
             ajax: {
                 url: '<?=getenv('SAS_URL')?>AJAX/PSB_getsekolah',
-                dataType: 'json'
+                dataType: 'json',
+                delay: 450
             }
         });
 
         $('#jurusan-pilih').select2({
             ajax: {
                 url: '<?=getenv('SAS_URL')?>AJAX/PSB_getjurusan',
-                dataType: 'json'
-            }
+                dataType: 'json',
+                delay: 450
+            },
+            minimumResultsForSearch: -1
         });
 
         field_provinces.select2({
             ajax: {
                 url: '<?=getenv('SAS_URL')?>AJAX/Address_provinces',
+                dataType: 'json',
+                delay: 450
             }
         })
         
@@ -927,9 +949,15 @@
             field_regencies.select2({
                 ajax: {
                     url: '<?=getenv('SAS_URL')?>AJAX/Address_regencies',
-                    data: {
-                        'id': address_ids['province_id']
+                    data: function (param) {
+                        var send = {
+                            id: address_ids['province_id'],
+                            q: param.term
+                        }
+                        return send;
                     },
+                    delay: 450,
+                    dataType: 'json'
                 }
             })
         });
@@ -939,21 +967,32 @@
             field_districts.select2({
                 ajax: {
                     url: '<?=getenv('SAS_URL')?>AJAX/Address_districts',
-                    data: {
-                        'id': address_ids['regency_id']
+                    data: function (param) {
+                        var send = {
+                            id: address_ids['regency_id'],
+                            q: param.term
+                        }
+                        return send;
                     },
+                    delay: 450,
+                    dataType: 'json'
                 }
             })
         });
 
         field_districts.on('change',function () {
-            field_villages.select2('destroy');
             field_villages.select2({
                 ajax: {
                     url: '<?=getenv('SAS_URL')?>AJAX/Address_villages',
-                    data: {
-                        'id': address_ids['district_id']
+                    data: function (param) {
+                        var send = {
+                            id: address_ids['district_id'],
+                            q: param.term
+                        }
+                        return send;
                     },
+                    delay: 450,
+                    dataType: 'json'
                 }
             })
         });
@@ -968,7 +1007,9 @@
             if (parent.val()!=null) {
                 child.removeAttr('disabled');
                 child.val('').trigger('change');
-                address_ids[parent.attr('data-ids')] = parent.val();
+                if (parent.attr('data-ids')!=null) {
+                    address_ids[parent.attr('data-ids')] = parent.val();
+                }
             }
         })
     }

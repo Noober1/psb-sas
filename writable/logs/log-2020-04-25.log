@@ -1,0 +1,62 @@
+CRITICAL - 2020-04-25 01:11:50 --> Cannot use object of type CodeIgniter\HTTP\Response as array
+#0 D:\MyProject\web\html\ci4\system\CodeIgniter.php(910): App\Controllers\Home->registering()
+#1 D:\MyProject\web\html\ci4\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 D:\MyProject\web\html\ci4\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\MyProject\web\html\ci4\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-04-25 01:12:19 --> Cannot use object of type CodeIgniter\HTTP\Response as array
+#0 D:\MyProject\web\html\ci4\system\CodeIgniter.php(910): App\Controllers\Home->registering()
+#1 D:\MyProject\web\html\ci4\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 D:\MyProject\web\html\ci4\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\MyProject\web\html\ci4\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-04-25 01:13:21 --> Cannot use object of type CodeIgniter\HTTP\Response as array
+#0 D:\MyProject\web\html\ci4\system\CodeIgniter.php(910): App\Controllers\Home->registering()
+#1 D:\MyProject\web\html\ci4\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 D:\MyProject\web\html\ci4\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\MyProject\web\html\ci4\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-04-25 01:14:30 --> Cannot use object of type stdClass as array
+#0 D:\MyProject\web\html\ci4\system\CodeIgniter.php(910): App\Controllers\Home->registering()
+#1 D:\MyProject\web\html\ci4\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 D:\MyProject\web\html\ci4\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\MyProject\web\html\ci4\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-04-25 01:14:41 --> Cannot use object of type stdClass as array
+#0 D:\MyProject\web\html\ci4\system\CodeIgniter.php(910): App\Controllers\Home->registering()
+#1 D:\MyProject\web\html\ci4\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 D:\MyProject\web\html\ci4\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\MyProject\web\html\ci4\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-04-25 01:24:36 --> Cannot use object of type stdClass as array
+#0 D:\MyProject\web\html\ci4\system\CodeIgniter.php(910): App\Controllers\Home->registering()
+#1 D:\MyProject\web\html\ci4\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 D:\MyProject\web\html\ci4\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\MyProject\web\html\ci4\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-04-25 01:28:45 --> Undefined property: CodeIgniter\View\View::$session
+#0 D:\MyProject\web\html\ci4\app\Views\register.php(15): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'D:\\MyProject\\we...', 15, Array)
+#1 D:\MyProject\web\html\ci4\system\View\View.php(236): include('D:\\MyProject\\we...')
+#2 D:\MyProject\web\html\ci4\system\Common.php(1071): CodeIgniter\View\View->render('register', Array, true)
+#3 D:\MyProject\web\html\ci4\app\Views\templates\base.php(15): view('register')
+#4 D:\MyProject\web\html\ci4\system\View\View.php(236): include('D:\\MyProject\\we...')
+#5 D:\MyProject\web\html\ci4\system\Common.php(1071): CodeIgniter\View\View->render('templates/base', Array, true)
+#6 D:\MyProject\web\html\ci4\app\Controllers\Home.php(39): view('templates/base', Array)
+#7 D:\MyProject\web\html\ci4\system\CodeIgniter.php(910): App\Controllers\Home->register()
+#8 D:\MyProject\web\html\ci4\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 D:\MyProject\web\html\ci4\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\MyProject\web\html\ci4\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2020-04-25 01:34:06 --> Undefined property: CodeIgniter\View\View::$session
+#0 D:\MyProject\web\html\ci4\app\Views\register.php(15): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'D:\\MyProject\\we...', 15, Array)
+#1 D:\MyProject\web\html\ci4\system\View\View.php(236): include('D:\\MyProject\\we...')
+#2 D:\MyProject\web\html\ci4\system\Common.php(1071): CodeIgniter\View\View->render('register', Array, true)
+#3 D:\MyProject\web\html\ci4\app\Views\templates\base.php(15): view('register')
+#4 D:\MyProject\web\html\ci4\system\View\View.php(236): include('D:\\MyProject\\we...')
+#5 D:\MyProject\web\html\ci4\system\Common.php(1071): CodeIgniter\View\View->render('templates/base', Array, true)
+#6 D:\MyProject\web\html\ci4\app\Controllers\Home.php(39): view('templates/base', Array)
+#7 D:\MyProject\web\html\ci4\system\CodeIgniter.php(910): App\Controllers\Home->register()
+#8 D:\MyProject\web\html\ci4\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 D:\MyProject\web\html\ci4\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\MyProject\web\html\ci4\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 {main}

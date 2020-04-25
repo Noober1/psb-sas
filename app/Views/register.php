@@ -1,4 +1,5 @@
-<?php if (getenv('CAPTCHA_ENABLE')==="Y") {?>
+<?php
+if (getenv('CAPTCHA_ENABLE')==="Y") {?>
     <script src="https://www.google.com/recaptcha/api.js?render=<?=getenv('CAPTCHA_KEYS')?>"></script>
 <?php }?>
 
@@ -12,7 +13,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark"> Pendaftaran Online</h1>
+                        <h1 class="m-0 text-dark">Pendaftaran Online</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6 text-right">
                         <a href="<?=base_url()?>" class="btn btn-danger"><i class="fa fa-times"></i> Batalkan</a>
@@ -88,7 +89,7 @@
                                             <label for="no-telpon">No. Telpon Siswa (HP)</label><small><i class="fa ml-2 mr-2 fa-info-circle"></i>Tanpa menggunakan kode negara (+62)</small>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <input type="text" value="" class="form-control inputmask" id="no-telpon" name="no-telpon" data-inputmask="'mask': '9999 9999 9999'" placeholder="Terdiri dari 15 digit angka" maxlength="15" required>
+                                                <input type="text" value="" class="form-control inputmask num-validator" data-min="13" data-max="15" id="no-telpon" name="no-telpon" data-inputmask="'mask': '9999 9999 9999'" placeholder="Terdiri dari 15 digit angka" maxlength="15" required>
                                             </div>
                                         </div>
                                     </div>
@@ -594,7 +595,7 @@
                                             <label for="penghasilan-ayah">Penghasilan perbulan</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <input type="text" value="" class="form-control inputmask" id="penghasilan-ayah" data-inputmask="'alias': 'numeric','rightAlign':'false', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'prefix': 'Rp ', 'placeholder': '0'" placeholder="Masukan nominal penghasilan perbulan" maxlength="10">
+                                                <input type="text" value="" class="form-control inputmask is-currency text-left" id="penghasilan-ayah" name="penghasilan-ayah" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digitsOptional': false,'digits':'2', 'prefix': 'Rp. ', 'placeholder': '0','max':'999999999','reverse':true,'clearMaskOnLostFocus': 'true'" placeholder="Masukan nominal penghasilan perbulan" maxlength="20">
                                             </div>
                                         </div>
                                     </div>
@@ -687,7 +688,7 @@
                                             <label for="penghasilan-ibu">Penghasilan perbulan</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <input type="text" value="" class="form-control inputmask" data-inputmask="'alias': 'numeric','rightAlign':'false', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'prefix': 'Rp ', 'placeholder': '0'" id="penghasilan-ibu" name="penghasilan-ibu" placeholder="Masukan nominal penghasilan perbulan" maxlength="10">
+                                                <input type="text" value="" class="form-control inputmask is-currency text-left" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digitsOptional': false,'digits':'2', 'prefix': 'Rp. ', 'placeholder': '0','max':'999999999','reverse':true" id="penghasilan-ibu" name="penghasilan-ibu" placeholder="Masukan nominal penghasilan perbulan" maxlength="20">
                                             </div>
                                         </div>
                                     </div>
@@ -746,7 +747,11 @@
     }
 
     $(document).ready(function () {
-    
+        
+        $('.inputmask').inputmask({
+            placeholder: ''
+        });
+
         //-------------- some functions
         (function($) {
             $.fn.field_correction = function() {
@@ -794,16 +799,23 @@
 
         //-------------- some scripts?
         $("body").overlayScrollbars({ className : "os-theme-dark" });
+
+        //get kueh
         fields.each(function (index, element) {
             var ini = $(this);
             var kueh = $.cookie(ini.attr('id'));
             var address = ini.attr('data-ids');
             if (kueh!==null) {
                 if (address !== undefined && address!=='') {
+                    if (ini.hasClass('is-currency')) {
+                        kueh = kueh.replace('Rp. ','').replace(',','');
+                        kueh = kueh.substring(0, kueh.length-3);
+                    }
                     ini.find('option').val(kueh).html('Terpilih');
                     ini.trigger('change').removeAttr('disabled');
+                } else {
+                    ini.val(kueh).trigger('change');
                 }
-                ini.val(kueh).trigger('change');
             }
         }).on('keyup',function (param) {
             $.cookie($(this).attr('id'), $(this).val());
@@ -831,10 +843,6 @@
                     itu.focus();
                     isValid = false;
                 }
-                // if (itu.val()==''||itu.val()==null) {
-                //     itu.val('').trigger('change');
-                //     isValid = false;
-                // }
                 if (i >= required_fields.length-1) {
                     if (!isValid) {
                         const Toast = Swal.mixin({
@@ -862,8 +870,16 @@
 
         form.on('submit',function (event) {
             event.preventDefault();
-            var data = form.serialize();
-            btn_submit.removeAttr('disabled').html(btn_submit_label);
+            var data = form.serializeArray();
+            $.each(data, function (i,field) {
+                var currency = ['penghasilan-ibu','penghasilan-ayah'];
+                if ($.inArray(field.name, currency) !== -1) {
+                    var val = data[i].value;
+                    val = val.replace('Rp. ','').replace(',','');
+                    val = val.substr(0,val.length-3);
+                    data[i].value = val;
+                }
+            });
             var submit_form = function (data) {
                 $.post(form.attr('action'), data, function (data, textStatus, jqXHR) {
                     var showCancel = true;
@@ -874,7 +890,7 @@
                             var iconType = 'success';
                             var html = '<h2>Registrasi berhasil.</h2><p>Anda berhasil melakukan pendaftaran, Anda akan di arahkan menuju halaman utama...</p>';
                             var showCancel = false;
-                            clear_kueh();
+                            // clear_kueh();
                         } else {
                             for (let index = 0; index < data.response.errors.length; index++) {
                                 html += '<h4 class="bg-dark text-light">'+data.response.errors[index]+'</h4>';
@@ -893,12 +909,13 @@
                         cancelButtonText:'<i class="fa fa-times"></i> Kembali',
                         cancelButtonAriaLabel: 'Tutup',
                     })
+                    btn_submit.removeAttr('disabled').html(btn_submit_label);
                 },"JSON");
             }
             if (typeof grecaptcha !== 'undefined') {
                 grecaptcha.ready(function() {
                     grecaptcha.execute('<?=getenv('CAPTCHA_KEYS')?>', {action:'validate_captcha'}).then(function(token) {
-                        data += '&token='+token;
+                        data.push({name: 'token', value: token});
                     }).then(function (param) {
                         submit_form(data);
                     });
@@ -907,9 +924,6 @@
                 submit_form(data);
             }
         })
-        $('.inputmask').inputmask({
-            placeholder: ''
-        });
         $('.select2').select2();
         $('.select2-nosearch').select2({
             minimumResultsForSearch: -1

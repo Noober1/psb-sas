@@ -17,7 +17,17 @@ class Home extends BaseController
 			'res_js'			=> $custom->resourceLoader($res,'js'),
 			'custom_body_style' => ''
 		];
-		return view('templates/base',$data);
+		if ($this->session->get('reg_id')==null) {
+			return view('templates/base',$data);
+		} else {
+			header('Location: '.base_url('Dashboard'));
+			die;
+		}
+	}
+
+	public function dashboard()
+	{
+		return 'a';
 	}
 
 	public function register()
@@ -35,7 +45,12 @@ class Home extends BaseController
 			'res_css'			=> $custom->resourceLoader($res,'css'),
 			'res_js'			=> $custom->resourceLoader($res,'js')
 		];
-		return view('templates/base',$data);
+		if ($this->session->get('reg_id')==null) {
+			return view('templates/base',$data);
+		} else {
+			header('Location: '.base_url());
+			die;
+		}
 	}
 
 	public function registering()
@@ -57,6 +72,12 @@ class Home extends BaseController
 				];
 				$response = $CRUD->post($send_options);
 				$res['response'] = json_decode($response->getBody());
+				if ($res['response']->success===true) {
+					$this->session->set([
+						'reg_id'=> $res['response']->reg_id,
+						'email'=> $res['response']->email,
+					]);
+				}
 			} else {
 				$res['success'] = false;
 				if ($get_valid['success']==true&&$get_valid['score'] <= getenv('CAPTCHA_MIN_SCORE')) {

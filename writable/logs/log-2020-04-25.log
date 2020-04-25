@@ -60,3 +60,12 @@ CRITICAL - 2020-04-25 01:34:06 --> Undefined property: CodeIgniter\View\View::$s
 #9 D:\MyProject\web\html\ci4\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #10 D:\MyProject\web\html\ci4\index.php(45): CodeIgniter\CodeIgniter->run()
 #11 {main}
+CRITICAL - 2020-04-25 06:17:05 --> {0, string} route cannot be found while reverse-routing.
+#0 D:\MyProject\web\html\ci4\system\HTTP\RedirectResponse.php(92): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('')
+#1 D:\MyProject\web\html\ci4\system\Common.php(798): CodeIgniter\HTTP\RedirectResponse->route(false)
+#2 D:\MyProject\web\html\ci4\app\Controllers\Home.php(102): redirect('http://sas.loca...')
+#3 D:\MyProject\web\html\ci4\system\CodeIgniter.php(910): App\Controllers\Home->logout()
+#4 D:\MyProject\web\html\ci4\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 D:\MyProject\web\html\ci4\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 D:\MyProject\web\html\ci4\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 {main}

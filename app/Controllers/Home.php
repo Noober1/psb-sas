@@ -9,6 +9,7 @@ class Home extends BaseController
 		$res = array(
 			'load_toast'	=> TRUE,
 			'load_modal'	=> TRUE,
+			'load_pagepilling'	=> TRUE,
 		);
 		$data = [
 			'page_title'		=> $custom->pageTitle('Selamat datang'),
@@ -91,5 +92,11 @@ class Home extends BaseController
 		} else {
 			return redirect()->to(base_url());
 		}
+	}
+
+	public function logout()
+	{
+		$this->session->remove(['reg_id','email']);
+		return redirect()->to(base_url());
 	}
 }

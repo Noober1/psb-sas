@@ -729,6 +729,10 @@ if (getenv('CAPTCHA_ENABLE')==="Y") {?>
     </div>
 </div>
 <script>
+
+    const base_url = function (path='') {
+        return '<?=base_url()?>'+path;
+    }
     //-------------- set main variables
     var required_fields = $('.form-control[required]');
     var fields = $('.form-control');
@@ -890,7 +894,8 @@ if (getenv('CAPTCHA_ENABLE')==="Y") {?>
                             var iconType = 'success';
                             var html = '<h2>Registrasi berhasil.</h2><p>Anda berhasil melakukan pendaftaran, Anda akan di arahkan menuju halaman utama...</p>';
                             var showCancel = false;
-                            // clear_kueh();
+                            window.location.href = base_url();
+                            clear_kueh();
                         } else {
                             for (let index = 0; index < data.response.errors.length; index++) {
                                 html += '<h4 class="bg-dark text-light">'+data.response.errors[index]+'</h4>';

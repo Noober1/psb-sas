@@ -28,6 +28,7 @@ class Custom extends \CodeIgniter\Config\BaseConfig
             'load_fakeloader'   => TRUE,
             'load_modal'        => FALSE,
             'load_inputmask'    => FALSE,
+            'load_pagepilling'     => FALSE,
         );
         $opt = array_merge($opt,$res);
         $css = array(
@@ -44,7 +45,8 @@ class Custom extends \CodeIgniter\Config\BaseConfig
             'load_jscookie'     => '',
             'load_fakeloader'   => '<link rel="stylesheet" href="'.getenv('RES_URL').'plugins/jq-fakeloader/dist/fakeLoader.min.css">',
             'load_modal'        => '<link rel="stylesheet" href="'.getenv('RES_URL').'plugins/fancybox/dist/jquery.fancybox.min.css">',
-            'load_inputmask'        => '',
+            'load_inputmask'    => '',
+            'load_pagepilling'     => '<link rel="stylesheet" href="'.getenv('RES_URL').'plugins/page-pilling.js/dist/jquery.pagepiling.min.css">',
         );
         $js = array(
             'load_lte'          => '<script src="'.getenv('RES_URL').'lte3/bootstrap/js/bootstrap.bundle.min.js"></script><script src="'.getenv('RES_URL').'lte3/lte/js/adminlte.min.js"></script>',
@@ -61,6 +63,7 @@ class Custom extends \CodeIgniter\Config\BaseConfig
             'load_fakeloader'   => '<script src="'.getenv('RES_URL').'plugins/jq-fakeloader/dist/fakeLoader.min.js"></script>',
             'load_modal'        => '<script src="'.getenv('RES_URL').'plugins/fancybox/dist/jquery.fancybox.min.js"></script>',
             'load_inputmask'    => '<script src="'.getenv('RES_URL').'plugins/Inputmask/dist/jquery.inputmask.min.js"></script>',
+            'load_pagepilling'  => '<script src="'.getenv('RES_URL').'plugins/page-pilling.js/dist/jquery.pagepiling.min.js"></script>',
         );
         if (count($opt)==count($css)&&count($opt)==count($js)) {
             $keys = array_keys($opt);

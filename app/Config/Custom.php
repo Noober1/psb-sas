@@ -2,8 +2,6 @@
 
 class Custom extends \CodeIgniter\Config\BaseConfig
 {
-    public $foo  = 'This is foo';
-    public $bar = 'This is bar';
     
     public function pageTitle($title)
     {
@@ -25,7 +23,6 @@ class Custom extends \CodeIgniter\Config\BaseConfig
             'load_texteditor'   => FALSE,
             'load_osbar'        => TRUE,
             'load_jscookie'     => FALSE,
-            'load_fakeloader'   => TRUE,
             'load_modal'        => FALSE,
             'load_inputmask'    => FALSE,
             'load_pagepilling'     => FALSE,
@@ -43,7 +40,6 @@ class Custom extends \CodeIgniter\Config\BaseConfig
             'load_texteditor'   => '<link rel="stylesheet" href="'.getenv('RES_URL').'lte3/summernote/summernote.min.js">',
             'load_osbar'        => '<link rel="stylesheet" href="'.getenv('RES_URL').'lte/overlayScrollbars/css/OverlayScrollbars.css">',
             'load_jscookie'     => '',
-            'load_fakeloader'   => '<link rel="stylesheet" href="'.getenv('RES_URL').'plugins/jq-fakeloader/dist/fakeLoader.min.css">',
             'load_modal'        => '<link rel="stylesheet" href="'.getenv('RES_URL').'plugins/fancybox/dist/jquery.fancybox.min.css">',
             'load_inputmask'    => '',
             'load_pagepilling'     => '<link rel="stylesheet" href="'.getenv('RES_URL').'plugins/page-pilling.js/dist/jquery.pagepiling.min.css">',
@@ -60,7 +56,6 @@ class Custom extends \CodeIgniter\Config\BaseConfig
             'load_texteditor'   => '',
             'load_osbar'        => '<script src="'.getenv('RES_URL').'lte/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>',
             'load_jscookie'     => '<script src="'.getenv('RES_URL').'lte3/jquery/jquery.cookie.js"></script>',
-            'load_fakeloader'   => '<script src="'.getenv('RES_URL').'plugins/jq-fakeloader/dist/fakeLoader.min.js"></script>',
             'load_modal'        => '<script src="'.getenv('RES_URL').'plugins/fancybox/dist/jquery.fancybox.min.js"></script>',
             'load_inputmask'    => '<script src="'.getenv('RES_URL').'plugins/Inputmask/dist/jquery.inputmask.min.js"></script>',
             'load_pagepilling'  => '<script src="'.getenv('RES_URL').'plugins/page-pilling.js/dist/jquery.pagepiling.min.js"></script>',

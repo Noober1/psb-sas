@@ -1,4 +1,4 @@
-<nav class="main-header navbar navbar-expand-md navbar-dark navbar-primary" <?php if(isset($isPortal)){?>style="background-color: #4343433d;border-bottom:none;"<?php }?>>
+<nav class="main-header navbar navbar-expand-md navbar-dark navbar-primary">
     <div class="container">
     <a href="<?=base_url()?>" class="navbar-brand">
         <img src="<?=getenv('RES_URL')?>lte/common/img/logo.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
@@ -8,12 +8,12 @@
     <div class="collapse navbar-collapse order-3 font-weight-bold" id="navbarCollapse">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
-        <li class="nav-item">
-            <a href="https://smkbintarjalancagak.sch.id" class="nav-link">Portal</a>
-        </li>
-        <li class="nav-item">
-            <a href="<?=base_url('login')?>" class="nav-link">Login Pengguna</a>
-        </li>
+            <li class="nav-item">
+                <a href="<?=base_url()?>" class="nav-link">Halaman Utama</a>
+            </li>
+            <li class="nav-item">
+                <a href="<?=base_url('login')?>" class="nav-link">Login Peserta</a>
+            </li>
         </ul>
 
         <!-- SEARCH FORM -->

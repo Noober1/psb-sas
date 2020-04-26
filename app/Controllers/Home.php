@@ -10,6 +10,7 @@ class Home extends BaseController
 			'load_toast'	=> TRUE,
 			'load_modal'	=> TRUE,
 			'load_pagepilling'	=> TRUE,
+			'load_jscookie'		=> TRUE,
 		);
 		$data = [
 			'page_title'		=> $custom->pageTitle('Selamat datang'),
@@ -27,6 +28,11 @@ class Home extends BaseController
 	}
 
 	public function dashboard()
+	{
+		return 'a';
+	}
+
+	public function logging()
 	{
 		return 'a';
 	}

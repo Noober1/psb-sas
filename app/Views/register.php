@@ -217,7 +217,7 @@ if (getenv('CAPTCHA_ENABLE')==="Y") {?>
                                                         Dari
                                                     </span>
                                                 </div>
-                                                <input type="text" value="" data-min="1" data-max="99" max-length="2" class="form-control inputmask num-validator" data-inputmask='"mask": "99"' id="anak-dari" name="anak-dari" placeholder="Anak dari" required>
+                                                <input type="text" value="" data-min="1" data-max="99" max-length="2" class="form-control inputmask num-validator" data-inputmask='"mask": "99"' id="anak-dari" name="anak-dari" placeholder="___ Bersaudara" required>
                                             </div>
                                         </div>
                                     </div>
@@ -864,12 +864,12 @@ if (getenv('CAPTCHA_ENABLE')==="Y") {?>
                             icon: 'error',
                             title: 'Masih ada data yang tidak valid'
                         })
+                        ini.html(btn_submit_label).removeAttr('disabled');
                     } else {
                         form.find('button[type="submit"]').trigger('click');
                     }
                 };
             })
-            ini.html(btn_submit_label).removeAttr('disabled');
         })
 
         form.on('submit',function (event) {
@@ -894,7 +894,9 @@ if (getenv('CAPTCHA_ENABLE')==="Y") {?>
                             var iconType = 'success';
                             var html = '<h2>Registrasi berhasil.</h2><p>Anda berhasil melakukan pendaftaran, Anda akan di arahkan menuju halaman utama...</p>';
                             var showCancel = false;
-                            window.location.href = base_url();
+                            setTimeout(() => {
+                                window.location.href = base_url('?trigger-login=on');
+                            }, 1500);
                             clear_kueh();
                         } else {
                             for (let index = 0; index < data.response.errors.length; index++) {
@@ -914,7 +916,7 @@ if (getenv('CAPTCHA_ENABLE')==="Y") {?>
                         cancelButtonText:'<i class="fa fa-times"></i> Kembali',
                         cancelButtonAriaLabel: 'Tutup',
                     })
-                    btn_submit.removeAttr('disabled').html(btn_submit_label);
+                    btn_submit.html(btn_submit_label).removeAttr('disabled');
                 },"JSON");
             }
             if (typeof grecaptcha !== 'undefined') {

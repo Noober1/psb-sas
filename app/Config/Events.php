@@ -20,7 +20,7 @@ use CodeIgniter\Events\Events;
  */
 
 Events::on('pre_system', function () {
-	if (ENVIRONMENT !== 'testing')
+	if (ENVIRONMENT !== 'development')
 	{
 		while (\ob_get_level() > 0)
 		{

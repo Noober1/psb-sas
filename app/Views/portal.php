@@ -216,7 +216,6 @@
 <script>
 	$(document).ready(function () {
 		$('#pagepiling').pagepiling({
-			direction:'vertical',
 			anchors: ['home', 'infoPage', 'termPage', 'registerPage'],
 			menu: '#menu',
 			normalScrollElements: '.card,.direct-chat-msg,.direct-chat-messages',
@@ -287,13 +286,46 @@
 		if (form instanceof jQuery) {
 			var email = form.find('input[type="email"]').val();
 			var no = form.find('input[type="text"]').val();
-			$.get('<?=getenv('SAS_URL')?>/AJAX/PSB_getpeserta',{
+			$.post(base_url('Home/Logging'),{
 					no:no,
 					email:email
 				},
 				function (data, textStatus, jqXHR) {
-					console.log(data);
-				}
+					var opt = {
+						title: 'Login Gagal',
+						icon: 'error',
+						text: '<p>Login gagal, silahkan periksa keterangan dibawah</p>',
+						cancel: true
+					}
+					if (data.success) {
+						opt.title = 'Login Berhasil';
+						opt.text = `Selamat datang ${data.response.nama_depan}, mengarahkan...`;
+						opt.icon = 'success';
+						opt.cancel = false;
+						setTimeout(() => {
+							window.location.reload();
+						}, 2000);
+					} else {
+						for (let index = 0; index < data.errors.length; index++) {
+							if (data.errors[index]=='Data not found') {
+								data.errors[index] = 'Email dan/atau No. Pendaftaran salah';
+							}
+							opt.text += `<kbd>${data.errors[index]}</kbd>`;
+						}
+					}
+					Swal.fire({
+						title: opt.title,
+						html: opt.text,
+						icon: opt.icon,
+						showCloseButton: false,
+						showCancelButton:false,
+                        showConfirmButton:opt.cancel,
+                        confirmButtonText:'<i class="fa fa-times"></i> Tutup',
+                        confirmButtonAriaLabel: 'Tutup',
+					}).then((result) => {
+						$('.btn-login').trigger('click');
+					})
+				},"JSON"
 			);
 		} else {
 			console.log('error');

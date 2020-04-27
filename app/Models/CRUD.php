@@ -21,4 +21,17 @@ class CRUD extends Model
                 'form_params' => $options['data']
             ]);
     }
+
+    public function get($options)
+    {
+        $opt = array('uri'=>'PSB','data'=>[]);
+        $options = array_merge($opt,$options);
+        return $this->init()->request(
+            'GET',
+            getenv('SAS_URL').'AJAX/'.$options['uri'],
+            [
+                'query' => $options['data']
+            ]
+        );
+    }
 }

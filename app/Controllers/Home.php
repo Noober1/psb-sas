@@ -34,7 +34,25 @@ class Home extends BaseController
 
 	public function logging()
 	{
-		return 'a';
+		header('Content-Type: application/json');
+		if ($this->request->isAJAX()) {
+			$CRUD = model('App\Models\CRUD');
+			$data = [
+				'uri'=>'PSB_getpeserta',
+				'data'=> $this->request->getVar()
+			];
+			$send = $CRUD->post($data);
+			$body = json_decode($send->getBody());
+			if ($body->success) {
+				$this->session->set([
+					'reg_id'=> $body->response->no_pendaftaran,
+					'email'=> $body->response->email,
+				]);
+			}
+			return json_encode($body);
+		} else {
+			return redirect()->to(base_url());
+		}
 	}
 
 	public function register()

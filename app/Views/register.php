@@ -729,10 +729,6 @@ if (getenv('CAPTCHA_ENABLE')==="Y") {?>
     </div>
 </div>
 <script>
-
-    const base_url = function (path='') {
-        return '<?=base_url()?>'+path;
-    }
     //-------------- set main variables
     var required_fields = $('.form-control[required]');
     var fields = $('.form-control');

@@ -15,6 +15,9 @@
     <script src="<?=getenv('RES_URL')?>plugins/morphing-modal/js/modernizr.js"></script>
     <script src="<?=getenv('RES_URL')?>plugins/jq-fakeloader/dist/fakeLoader.min.js"></script>
     <script>
+    const base_url = function (path='') {
+        return '<?=base_url()?>/'+path;
+    }
     var bg = ['#658af8','#42bcf5','#06e38d','#dc3545','#fd7e14','#6610f2'];
     function getRandomInt(max) {
         return Math.floor(Math.random() * Math.floor(max));

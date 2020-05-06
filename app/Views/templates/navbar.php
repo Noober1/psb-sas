@@ -11,9 +11,6 @@
             <li class="nav-item">
                 <a href="<?=base_url()?>" class="nav-link">Halaman Utama</a>
             </li>
-            <li class="nav-item">
-                <a href="<?=base_url('login')?>" class="nav-link">Login Peserta</a>
-            </li>
         </ul>
 
         <!-- SEARCH FORM -->

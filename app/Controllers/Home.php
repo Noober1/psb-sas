@@ -66,7 +66,7 @@ class Home extends BaseController
 		);
 		$data = [
 			'page_title'		=> $custom->pageTitle('Pendaftaran Daring'),
-			'page_content'		=> 'register',
+			'page_content'		=> 'new_register',
 			'res_css'			=> $custom->resourceLoader($res,'css'),
 			'res_js'			=> $custom->resourceLoader($res,'js')
 		];

@@ -6,3 +6,6 @@
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
 }
+span.select2-selection {
+    height: 39px!important;
+}

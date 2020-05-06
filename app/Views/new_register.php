@@ -178,6 +178,7 @@ $(document).ready(function () {
     var required_fields = $('.form-control[required]');
     var form = $('form');
     var btn_submit = $('#btn-submit');
+    const btn_submit_label = btn_submit.html();
     (function($) {
         $.fn.field_correction = function() {
             var ini = this;
@@ -223,6 +224,7 @@ $(document).ready(function () {
     }(jQuery));
 
     btn_submit.on('click',function () {
+        btn_submit.attr('disabled','disabled').html('<i class="fa fa-spinner fa-spin mr-2"></i>Memproses...');
         var isValid = true;
         $('.form-control[required]').each(function (i, e) {
             var itu = $(this);
@@ -249,6 +251,7 @@ $(document).ready(function () {
                         icon: 'error',
                         title: 'Masih ada data yang tidak valid'
                     })
+                    btn_submit.attr('disabled','disabled').html(btn_submit_label);
                 }
             };
         })
@@ -259,6 +262,7 @@ $(document).ready(function () {
         var data = form.serializeArray();
         var submit_form = function (data) {
             $.post(form.attr('action'), data, function (data, textStatus, jqXHR) {
+                btn_submit.removeAttr('disabled').html(btn_submit_label);
                 var showCancel = true;
                 var iconType='error';
                 var html='<h2>Registrasi gagal</h2><p>Silahkan periksa error di bawah ini</p>';

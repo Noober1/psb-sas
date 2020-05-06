@@ -186,7 +186,7 @@
 	<div id="login">
 		<div class="row">
 			<div class="col-12 mb-3 mt-2">
-				Silahkan untuk login menggunakan <strong>Nomor pendaftaran</strong> dan <strong>E-Mail</strong> yang sudah Anda daftarkan sebelumnya
+				Silahkan untuk login menggunakan <strong>Nomor Telpon</strong> dan <strong>E-Mail</strong> yang sudah Anda daftarkan sebelumnya
 			</div>
 			<form class="col-12 form-login" action="<?=base_url('Logging')?>" onsubmit="login($(this));return false;">
 				<div class="input-group mb-3">
@@ -198,7 +198,7 @@
 					</div>
 				</div>
 				<div class="input-group mb-3">
-					<input type="text" class="form-control" placeholder="Nomor Peserta" required>
+					<input type="text" class="form-control" placeholder="No. Telpon" required>
 					<div class="input-group-append">
 						<div class="input-group-text">
 							<span class="fas fa-id-card"></span>

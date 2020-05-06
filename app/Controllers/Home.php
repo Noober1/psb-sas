@@ -29,7 +29,25 @@ class Home extends BaseController
 
 	public function dashboard()
 	{
-		return 'a';
+		$custom = new \Config\Custom();
+		$res = array(
+			'load_toast'	=> TRUE,
+			'load_modal'	=> TRUE,
+			'load_jscookie'		=> TRUE,
+		);
+		$data = [
+			'page_title'		=> $custom->pageTitle('Dashboard'),
+			'page_content'		=> 'dashboard',
+			'res_css'			=> $custom->resourceLoader($res,'css'),
+			'res_js'			=> $custom->resourceLoader($res,'js'),
+			'custom_body_style' => ''
+		];
+		if ($this->session->get('reg_id')!=null) {
+			return view('templates/base',$data);
+		} else {
+			header('Location: '.base_url('Dashboard'));
+			die;
+		}
 	}
 
 	public function logging()

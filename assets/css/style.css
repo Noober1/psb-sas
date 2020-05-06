@@ -9,3 +9,24 @@
 span.select2-selection {
     height: 39px!important;
 }
+
+.skeleton:empty::after {
+    content: "";
+    background:gray;
+    background-image: linear-gradient(90deg, transparent 0%, rgba(209,209,209,1) 10%, rgba(255,255,255,1) 20%, rgba(209,209,209,1) 30%, transparent 100%);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: cover;
+    height: 20px!important;
+    display: block;
+    animation: shine 2s linear infinite;
+}
+
+@keyframes shine {
+    from {
+        background-position:0px 0px; 
+    }
+    to{
+        background-position:1000px 0px; 
+    }
+}

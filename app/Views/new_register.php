@@ -328,11 +328,6 @@ $(document).ready(function () {
         minimumResultsForSearch: -1
     });
 
-    $('.date').datepicker({
-        autoclose: true,
-        format:'yyyy-mm-dd'
-    });
-
     required_fields.on('keyup',function (param) {
         $(this).field_correction();
     }).on('focus',function (param) {

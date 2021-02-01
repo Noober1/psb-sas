@@ -1,3 +1,8 @@
+<?php
+$get_date = date('Y');
+$plus_date = $get_date + 1;
+$tahun_ajaran = $get_date . '/' . $plus_date;
+?>
 <style>
 .bg-img::after {
 	content: "";
@@ -90,11 +95,11 @@
 					<div class="col-12 mt-4 mb-4">
 						<div class="d-lg-block d-md-block d-sm-none d-none">
 							<h1 class="display-3 text-bold" style="font-size:5vw">SELAMAT DATANG</h1>
-							<h3 class="display-4 text-bold">Di situs Pendaftaran Siswa Baru (PSB)<br><strong><?=getenv('SCHOOL_NAME')?></strong> tahun ajaran <strong><?=date('Y')?></strong>.<br></h3>
+							<h3 class="display-4 text-bold">Di situs Pendaftaran Siswa Baru (PSB)<br><strong><?=getenv('SCHOOL_NAME')?></strong><br> tahun ajaran <strong><?=$tahun_ajaran?></strong>.<br></h3>
 						</div>
 						<div class="d-lg-none d-md-none d-sm-block d-block">
 							<h5 class="display-4 text-bold" style="font-size:10vw">SELAMAT DATANG</h5>
-							<h3 style="font-size:3.5vw">Di situs Pendaftaran Siswa Baru (PSB)<br><strong><?=getenv('SCHOOL_NAME')?></strong> tahun ajaran <strong><?=date('Y')?></strong>.<br></h3>
+							<h3 style="font-size:3.5vw">Di situs Pendaftaran Siswa Baru (PSB)<br><strong><?=getenv('SCHOOL_NAME')?></strong><br> tahun ajaran <strong><?=$tahun_ajaran?></strong>.<br></h3>
 						</div>
 						<h5>Silahkan memilih menu di bawah ini untuk memulai</h5>
 					</div>

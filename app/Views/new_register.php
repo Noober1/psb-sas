@@ -48,7 +48,7 @@ if (getenv('CAPTCHA_ENABLE')==="Y") {?>
                                     <label for="no-telpon">No. Telpon Siswa (HP)</label><small><i class="fa ml-2 mr-2 fa-info-circle"></i>Tanpa menggunakan kode negara (+62)</small>
                                     <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                     <div class="input-group mb-3">
-                                        <input type="text" value="" class="form-control inputmask num-validator" data-min="13" data-max="15" id="no-telpon" name="no-telpon" data-inputmask="'mask': '9999 9999 9999'" placeholder="Terdiri dari 15 digit angka" maxlength="15" required>
+                                        <input type="text" value="" class="form-control inputmask num-validator" data-min="13" data-max="15" id="no-telpon" name="no-telpon" data-inputmask="'mask': '9999 9999 9999'" placeholder="Maksimal karakter 15 digit angka" maxlength="15" required>
                                     </div>
                                 </div>
                             </div>
@@ -314,7 +314,6 @@ $(document).ready(function () {
     $('#asal-sekolah').select2({
         ajax: {
             url: '<?=getenv('SAS_URL')?>AJAX/PSB_getsekolah',
-            dataType: 'json',
             delay: 450
         }
     });

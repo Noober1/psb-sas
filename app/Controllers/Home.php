@@ -40,12 +40,13 @@ class Home extends BaseController
 			'page_content'		=> 'dashboard',
 			'res_css'			=> $custom->resourceLoader($res,'css'),
 			'res_js'			=> $custom->resourceLoader($res,'js'),
-			'custom_body_style' => ''
+			'custom_body_style' => '',
 		];
 		if ($this->session->get('reg_id')!=null) {
+			$data['session_data'] = $this->session->get();
 			return view('templates/base',$data);
 		} else {
-			header('Location: '.base_url('Dashboard'));
+			header('Location: '.base_url());
 			die;
 		}
 	}
@@ -136,9 +137,73 @@ class Home extends BaseController
 		}
 	}
 
+	public function save_personal()
+	{
+		$res = array(
+			'success'	=>true,
+			'errors'	=> array()
+		);
+		$token = getenv('CAPTCHA_ENABLE')=='Y' ? $this->request->getVar('token') : 'No token';
+		$captcha = model('App\Models\Captcha');
+		$CRUD = model('App\Models\CRUD');
+		
+		$get_valid = $captcha->validasi($token);
+		if ($this->request->isAJAX()) {
+			if ($get_valid['success']==true&&$get_valid['score'] > getenv('CAPTCHA_MIN_SCORE')) {
+				$send_options = [
+					'uri'=>'PSB_savePersonal',
+					'data'=> $this->request->getVar()
+				];
+				$response = $CRUD->post($send_options);
+				$res['response'] = json_decode($response->getBody());
+			} else {
+				$res['success'] = false;
+				if ($get_valid['success']==true&&$get_valid['score'] <= getenv('CAPTCHA_MIN_SCORE')) {
+					$res['errors'][] = 'Boo beep bee boop?';
+				} else {
+					$res['errors'][] = $get_valid;
+				}
+			}
+			$res['captcha_response'] = $get_valid;
+			return json_encode($res);
+		} else {
+			return redirect()->to(base_url());
+		}
+	}
+
 	public function logout()
 	{
 		$this->session->remove(['reg_id','email']);
 		return redirect()->to(base_url());
+	}
+
+	public function personal_info()
+	{
+		$custom = new \Config\Custom();
+		$res = array(
+			'load_toast'	=> TRUE,
+			'load_modal'	=> TRUE,
+			'load_jscookie'		=> TRUE,
+			'load_inputmask'	=> TRUE,
+			'load_datepicker'	=> TRUE
+		);
+		$data = [
+			'page_title'		=> $custom->pageTitle('Data Pribadi'),
+			'page_content'		=> 'personal_info',
+			'res_css'			=> $custom->resourceLoader($res,'css'),
+			'res_js'			=> $custom->resourceLoader($res,'js'),
+			'custom_body_style' => '',
+		];
+		if ($this->session->get('reg_id')!=null) {
+			$CRUD = model('App\Models\CRUD');
+			$send = $CRUD->get([
+				'uri'=> 'PSB_getdata?id='.$this->session->get('reg_id'),
+			]);
+			$data['personal_info'] = json_decode($send->getBody());
+			return view('templates/base',$data);
+		} else {
+			header('Location: '.base_url());
+			die;
+		}
 	}
 }

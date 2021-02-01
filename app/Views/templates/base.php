@@ -27,7 +27,9 @@
         spinner: 'spinner'+(getRandomInt(6) + 1)
     });
     </script>
-    <?=view($page_content)?>
+    <?=view($page_content,[
+        'session_data' => isset($session_data) ? $session_data : null
+    ])?>
     <?=$res_js?>
     </body>
 </html>

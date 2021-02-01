@@ -47,6 +47,9 @@ $tahun_ajaran = $get_date . '/' . $plus_date;
 #menu .nav-item.active{
 	background-color:#ffffff3b;
 }
+#menu .nav-item {
+	margin-bottom: 5px;
+}
 .transition-3s{
 	-moz-transition: .3s ease-in-out;
 	-webkit-transition: .3s ease-in-out;
@@ -130,10 +133,8 @@ $tahun_ajaran = $get_date . '/' . $plus_date;
 							<div class="card-text direct-chat-messages osbar" style="min-height:320px">
 							<!-- Message. Default to the left -->
 								<div class="direct-chat-msg">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, a voluptatem! Sed praesentium deserunt voluptatum ducimus id excepturi officia laboriosam aspernatur atque, aliquam commodi officiis iure corporis labore, culpa repellendus.<br>
-									Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium sit animi debitis mollitia quas. Sit debitis beatae voluptas a saepe. Asperiores hic aperiam accusantium perferendis repudiandae fugit voluptatum, maiores architecto?<br>
-									Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex, in! Assumenda magni sit ipsam voluptas sapiente, blanditiis veritatis labore error itaque enim a, repellat officiis dolore. Quasi alias beatae illum! <br>
-									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus cumque ullam commodi ea alias nihil aspernatur porro ad nostrum quibusdam adipisci consequatur rerum quasi, dicta reiciendis quae tempore soluta. Minima.
+									Ini adalah situs website Pendaftaran Peserta Didik Baru(PPDB) <?=getenv('SCHOOL_NAME')?>. Aplikasi ini dapat digunakan untuk melakukan pendaftaran secara daring. Untuk melakukan pendaftaran, dipersilahkan untuk melihat persyaratan terlebih dahulu dibawah. Jika Anda sudah membaca persyaratan, dipersilahkan pergi kebagian halaman paling bawah untuk mendaftar.
+									Jika Anda sudah pernah mendaftar, Anda dapat melihat informasi pendaftaran maupun informasi pribadi dengan cara melakukan login. Untuk melakukan login, dipersilahkan untuk melihat halaman paling bawah untuk login.
 								</div>
 							<!-- /.direct-chat-msg -->
 							</div>
@@ -154,10 +155,14 @@ $tahun_ajaran = $get_date . '/' . $plus_date;
 					<a class="text-light" href="#infoPage"><i class="fa fa-angle-double-up transition-3s"></i></a>
 					<div class="card text-dark m-2 elevation-3">
 						<div class="card-title d-block text-center m-3">
-							<h1>Persyaratan</h1>
+							<h1>Persyaratan Pendaftaran Online</h1>
 						</div>
 						<div class="card-body text-left">
-							test
+							<ul>
+								<li>Mempunyai Nomor Induk Siswa Nasional(NISN)</li>
+								<li>Mempunyai nomor HP atau telfon yang dapat dihubungi</li>
+								<li>Mempunyai surel(E-Mail) yang aktif</li>
+							</ul>
 						</div>
 					</div>
 					<a class="text-light mr-2" href="#registerPage"><i class="fa fa-angle-double-down transition-3s"></i></a>

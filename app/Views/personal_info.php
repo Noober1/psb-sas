@@ -34,7 +34,7 @@ function printSelected($field,$value) {
         <div class="content">
             <div class="container">
                 <form action="<?=base_url('Home/save_personal')?>" id="form-register" role="form" class="row">
-                    
+                    <input type="hidden" name="registration-number" value="<?= $personal_info->no_pendaftaran ?>">
                     <div class="col-12">
                         <div class="callout callout-info elevation-1" id="note">
                             <h5>Catatan</h5>
@@ -54,7 +54,7 @@ function printSelected($field,$value) {
                                             <label for="nisn">No. Induk Siswa Nasional (NISN)</label>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <input type="text" value="<?= $personal_info->nisn ?>" class="form-control inputmask is-required" id="nisn" name="nisn" placeholder="Terdiri dari 10 digit angka" maxlength="10" data-inputmask='"mask": "9999999999"' required>
+                                                <input type="text" value="<?= $personal_info->nisn ?>" class="form-control inputmask is-required" id="nisn" name="nisn" placeholder="Terdiri dari 10 digit angka" maxlength="10" data-inputmask='"mask": "9999999999"' readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -401,7 +401,7 @@ function printSelected($field,$value) {
                                             <label for="email">Surel/E-Mail</label><small><i class="fa ml-2 mr-2 fa-info-circle"></i>Untuk saat ini, data ini tidak dapat dirubah</small>
                                             <small class="text-danger d-none"><i class="fa mr-2 fa-info-circle"></i><span class="error-dialog">Data invalid</span></small>
                                             <div class="input-group mb-3">
-                                                <input type="email" value="<?= $personal_info->email?>" class="form-control" id="email" name="email" placeholder="Masukan surel/E-Mail siswa, contoh: siswa@gmail.com" disabled>
+                                                <input type="email" value="<?= $personal_info->email?>" class="form-control" id="email" name="email" placeholder="Masukan surel/E-Mail siswa, contoh: siswa@gmail.com" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -815,7 +815,7 @@ function printSelected($field,$value) {
             if (kueh) {
                 if (address !== undefined && address!=='') {
                     if (ini.hasClass('is-currency')) {
-                        kueh = kueh.replace('Rp. ','').replace(',','');
+                        kueh = kueh.val.replace(/[^0-9.]/g, '').replace('.','');
                         kueh = kueh.substring(0, kueh.length-3);
                     }
                     ini.find('option').val(kueh).html('Terpilih');
@@ -893,7 +893,7 @@ function printSelected($field,$value) {
                 var currency = ['penghasilan-ibu','penghasilan-ayah'];
                 if ($.inArray(field.name, currency) !== -1) {
                     var val = data[i].value;
-                    val = val.replace('Rp. ','').replace(',','');
+                    val = val.replace(/[^0-9.]/g, '').replace('.','');
                     val = val.substr(0,val.length-3);
                     data[i].value = val;
                 }

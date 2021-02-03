@@ -759,6 +759,25 @@ function printSelected($field,$value) {
             placeholder: ''
         });
 
+        const showAlert = async() => {
+            const { value: accept } = await Swal.fire({
+                title: 'Data berhasil disimpan',
+                icon: 'success',
+                html:'Informasi Pribadi Anda telah berhasil disimpan',
+                showCloseButton: false,
+                showCancelButton:true,
+                focusConfirm: true,
+                allowOutsideClick:false,
+                allowEscapeKey:false,
+                confirmButtonText:'<i class="fa fa-edit"></i> Halaman utama',
+                cancelButtonText:'<i class="fa fa-forward"></i> Edit kembali'
+            })
+
+            if (accept) {
+                window.location.href = '<?= base_url('Dashboard')?>'
+            }
+        }
+
         //-------------- some functions
         (function($) {
             $.fn.field_correction = function() {
@@ -909,6 +928,9 @@ function printSelected($field,$value) {
                             var html = '<h2>Menyimpan data berhasil.</h2>';
                             var showCancel = false;
                             clear_kueh();
+                            showAlert();
+                            btn_submit.html(btn_submit_label).removeAttr('disabled');
+                            return
                         } else {
                             for (let index = 0; index < data.response.errors.length; index++) {
                                 html += '<h4 class="bg-dark text-light">'+data.response.errors[index]+'</h4>';

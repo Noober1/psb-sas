@@ -49,28 +49,54 @@
 <script>
     $(document).ready(function () {
 
-        const initPage = (data) => {
-            var calloutTitle = $('#callout-title'),
-            calloutSubtitle = $('#callout-subtitle')
-            menuPersonalInfo = $('#menu-personal-info')
-            menuRegistrationProove = $('#menu-registration-proove')
-            sidebarTitle = $('#sidebar-title');
+        const showAlert = async() => {
+            const { value: accept } = await Swal.fire({
+                title: 'Lengkapi Data Pribadi',
+                icon: 'info',
+                html:'Anda telah berhasil terdaftar sebagai calon peserta didik baru. Silahkan untuk melengkapi data pribadi dengan cara menekan tombol dibawah ini',
+                showCloseButton: false,
+                showCancelButton: false,
+                focusConfirm: true,
+                allowOutsideClick:false,
+                allowEscapeKey:false,
+                confirmButtonText:'<i class="fa fa-edit"></i> Lengkapi data'
+            })
 
+            if (accept) {
+                window.location.href = '<?= base_url('Personal')?>'
+            }
+        }
+
+        const initPage = (data) => {
             const {
                 nama_depan,
-                nama_belakang
+                nama_belakang,
             } = data
 
             const fullname = nama_depan + ' ' + nama_belakang
 
-            calloutTitle.text(`Selamat datang, ${fullname}`)
-            calloutSubtitle.html('Saat ini Anda berhasil login kedalam sistem PPDB, silahkan untuk melengkapi data pribadi Anda pada menu <b>Data Pribadi</b>.<br>Jika sudah melengkapi data pribadi, dipersilahkan untuk mencetak bukti pendaftaran pada menu <b>Cetak bukti pendaftaran</b>')
+            isEdited = data.alamat_kampung ? 'Lihat data pribadi' : 'Lengkapi data pribadi';
+
+            var calloutTitle = $('#callout-title'),
+            calloutSubtitle = $('#callout-subtitle')
+            menuPersonalInfo = $('#menu-personal-info')
+            menuRegistrationProove = $('#menu-registration-proove')
+            sidebarTitle = $('#sidebar-title')
+            calloutTitleText = `Selamat datang, ${fullname}`
+            calloutSubtitleText = 'Saat ini Anda berhasil login kedalam sistem PPDB, untuk melihat data pribadi anda, silahkan click menu <b>' + isEdited + '</b>.<br>Jika sudah melengkapi data pribadi, dipersilahkan untuk mencetak bukti pendaftaran pada menu <b>Cetak bukti pendaftaran</b>'
+
+            calloutTitle.text(calloutTitleText)
+            calloutSubtitle.html(calloutSubtitleText)
             sidebarTitle.text(fullname)
-            menuPersonalInfo.html('<a href="<?=base_url('Personal')?>">Info Pribadi</a>')
+            menuPersonalInfo.html(`<a href="<?=base_url('Personal')?>">${isEdited}</a>`)
             menuRegistrationProove.html('<a href="<?=base_url('Personal')?>">Cetak Bukti Pendaftaran</a>')
+
+            if(!data.alamat_kampung) showAlert()
+
         }
 
         $.get('<?=getenv('SAS_URL')?>AJAX/PSB_getdata?id=<?= $session_data['reg_id'] ?>', (data, textStatus, jqXHR) => {
+            console.log(data)
             if (data) {
                 initPage(data)
             } else {
